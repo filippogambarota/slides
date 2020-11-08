@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>A (space) travel into the Tidyverse 🚀</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Filippo Gambarota" />
+    <meta name="date" content="2020-10-11" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# A (space) travel into the Tidyverse 🚀
+### Filippo Gambarota
+### University of Padova - Psicostat
+### 10/11/2020
+
+---
+
+
+
+
+# Contents
+
+* ### What is the **tidyverse** and the **tidy approach**
+
+* ### The main packages and function
+
+* ### Other **tidy** packages
+
+* ### Some examples
+
+---
+class: inverse, middle, center
+
+# What is the Tidyverse?
+
+---
+
+# Tidyverse
+
+.pull-left[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/hadley-wickham.jpg" alt="Hadley Wickham - RStudio Data Scientist" width="2720" /&gt;
+&lt;p class="caption"&gt;Hadley Wickham - RStudio Data Scientist&lt;/p&gt;
+&lt;/div&gt;
+
+]
+.pull-right[
+* The tidyverse is an opinionated collection of R packages designed for data science. All packages **share an underlying design philosophy, grammar, and data structures**
+
+&lt;img src="img/tidyverse.svg" height="300" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# The big picture
+
+&lt;img src="img/big_picture.png" width="6861" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, middle, center
+
+# What is the Tidy approach?
+
+---
+
+# What is the tidy approach?
+
+* ## The best way to format data is the **long format**
+
+&lt;br&gt;
+
+* ## Concatenate operations with **pipes**
+
+&lt;br&gt;
+
+* ## Focus on a **functional programming approach**
+
+---
+
+# Long-format data
+
+
+
+
+* ### Each row is an **observation** and each column is a **variable**
+
+.pull-left[
+
+
+```r
+head(dat)
+```
+
+```
+## # A tibble: 6 x 3
+##      id cond     cov
+##   &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1     1 A     -0.561
+## 2     1 B      0.997
+## 3     1 C      1.32 
+## 4     2 A     -1.23 
+## 5     2 B     -0.605
+## 6     2 C      1.43
+```
+]
+
+.pull-right[
+
+
+```r
+dat %&gt;% 
+  pivot_wider(names_from = cond, values_from = cov) %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 4
+##      id      A      B      C
+##   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1 -0.561  0.997  1.32 
+## 2     2 -1.23  -0.605  1.43 
+## 3     3 -2.12  -0.792 -2.05 
+## 4     4 -0.842 -1.14  -0.162
+## 5     5  1.04  -1.57  -0.680
+## 6     6 -1.31  -0.715 -1.10
+```
+]
+
+---
+
+# Concatenate operations with **pipes**
+
+.pull-left[
+
+```r
+knitr::include_graphics("img/magrittr.png")
+```
+
+&lt;img src="img/magrittr.png" width="200" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+* Pipes are some operators from the `magrittr::` package with the aim of **improving the code readability and maintainability** &lt;sup&gt;1&lt;/sup&gt;
+
+* There are several different **pipes** but the most used (and useful) is the `%&gt;%`
+
+* Pipes are integrated with all **tidyverse** functions and packages
+
+]
+
+.footnote[[1] [magrittr website](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html)
+]
+
+---
+
+# Concatenate operations with **pipes**
+
+* The `%&gt;%` pipe is another way to **declare the function with an argument**
+
+* If `.f` is a function and `.x` is an object, this `.f(x)` is equivalent to `.x %&gt;% .f`
+
+--
+
+
+```r
+mean(iris$Sepal.Length)
+```
+
+```
+## [1] 5.843333
+```
+
+--
+
+
+```r
+iris$Sepal.Length %&gt;% 
+  mean()
+```
+
+```
+## [1] 5.843333
+```
+
+---
+
+# Concatenate operations with **pipes**
+
+
+
+
+The previous simple example is not completely appropriate, the `pipe` is useless. However let's assume a more complicated example where:
+
+1. aggregate data by a `factor` using the `mean()` 
+2. create a new columns with some operations between columns
+3. rename a variable
+
+
+```r
+head(dat)
+```
+
+```
+## # A tibble: 6 x 6
+##      id cond1 cond2 value   cov1   cov2
+##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1 A     1      99.7 -0.168 -0.283
+## 2     1 A     2      96.7 -0.168 -0.283
+## 3     1 A     3      97.8 -0.168 -0.283
+## 4     1 B     1     110.  -0.168 -0.283
+## 5     1 B     2     120.  -0.168 -0.283
+## 6     1 B     3      90.7 -0.168 -0.283
+```
+
+---
+# Without pipes and tidyverse
+
+
+```r
+dat &lt;- aggregate(value ~ id + cond1 + cov1 + cov2, mean, data = dat) # aggregate by cond1
+dat$cov1 &lt;- dat$cov1 - mean(dat$cov1) # center
+dat$cov2 &lt;- (dat$cov2 - mean(dat$cov2))/sd(dat$cov2) # z point
+names(dat)[1] &lt;- "subject" # rename
+head(dat)
+```
+
+```
+##   subject cond1        cov1       cov2     value
+## 1       5     A -0.55961855 -2.0677048 100.95330
+## 2       5     B -0.55961855 -2.0677048  98.43150
+## 3       5     C -0.55961855 -2.0677048 101.17155
+## 4       1     A  0.04286109 -0.5925186  98.07563
+## 5       1     B  0.04286109 -0.5925186 107.01629
+## 6       1     C  0.04286109 -0.5925186  95.74660
+```
+
+* This works fine but is a little bit **redundant**, **difficult to read** and there is a **series of assignment operations**
+
+* Some columns are not in the correct order
+
+* In order to have a new `dat`, you can create a `dat_agg` or overwrite the `dat` object
+
+---
+
+# With pipes and tidyverse
+
+
+
+
+
+```r
+dat %&gt;% 
+  mutate(cov1 = cov1 - mean(cov1),
+         cov2 = (cov2 - mean(cov2))/sd(cov2)) %&gt;% 
+  rename("subject" = id) %&gt;% 
+  group_by(subject, cond1, cov1, cov2) %&gt;% 
+  summarise(mean = mean(value),
+            sd = sd(value)) %&gt;% 
+  ungroup() %&gt;% 
+  head()
+```
+
+```
+## `summarise()` regrouping output by 'subject', 'cond1', 'cov1' (override with `.groups` argument)
+```
+
+```
+## # A tibble: 6 x 6
+##   subject cond1  cov1    cov2  mean    sd
+##     &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1       1 A     0.655 -0.0176 113.   2.21
+## 2       1 B     0.655 -0.0176  89.6  7.61
+## 3       1 C     0.655 -0.0176 109.  21.7 
+## 4       2 A     0.200  0.0954  92.3 14.7 
+## 5       2 B     0.200  0.0954 107.  20.9 
+## 6       2 C     0.200  0.0954  94.8  5.21
+```
+
+---
+
+# With pipes and tidyverse
+
+
+```r
+dat %&gt;% 
+  mutate(cov1 = cov1 - mean(cov1),
+         cov2 = (cov2 - mean(cov2))/sd(cov2)) %&gt;% 
+  rename("subject" = id) %&gt;% 
+  group_by(subject, cond1, cov1, cov2) %&gt;% 
+  summarise(mean = mean(value),
+            sd = sd(value)) %&gt;% 
+  ungroup() %&gt;% 
+  head()
+```
+
+* The `dat` object is not modified
+
+* Operations follows an **easy to read workflow of operations**
+
+* If you want to assign you can use `&lt;-` at the beginning as `dat &lt;- dat %&gt;% ...`
+
+---
+
+# Functional Programming
+
+Without technical details, the idea of functional programming is the comparison between a `for loop` and a `apply family` function &lt;sup&gt;2&lt;/sup&gt;
+
+.footnote[[2] From the Hadley Wickam talk - [Managing many models with R](https://www.youtube.com/watch?v=rz3_FDVt9eg)
+]
+
+--
+
+
+```r
+means &lt;- vector("double", ncol(mtcars))
+medians &lt;- vector("double", ncol(mtcars))
+
+for(i in seq_along(mtcars)) {
+    means[[i]] &lt;- mean(mtcars[[i]], na.rm = TRUE)
+    medians[[i]] &lt;- median(mtcars[[i]], na.rm = TRUE)
+}
+```
+
+--
+
+
+```r
+means &lt;- lapply(mtcars, function(x) mean(x))
+median &lt;- lapply(mtcars, function(x) median(x))
+```
+
+---
+
+# Functional Programming with purrr::
+
+.pull-left[
+&lt;img src="img/purrr.svg" width="200" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="img/furrr.svg" width="200" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+* Purrr is as package that provides a series of **apply like** functions in order to perform complex and fast operations
+
+* Furrr is the same package as `purrr` but with a `future` implementation in order to parallelize the operations
+
+
+```r
+means &lt;- map_dbl(mtcars, mean)
+means[1:4]
+```
+
+```
+##       mpg       cyl      disp        hp 
+##  20.09062   6.18750 230.72188 146.68750
+```
+
+```r
+# sapply(mtcars, function(x) mean(x))
+```
+]
+
+---
+
+class: inverse, middle, center
+
+# Main packages and functions
+
+---
+
+# Main packages and functions
+
+&lt;img src="img/big_picture_high.png" width="6861" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Tidyr
+
+.pull-left[
+&lt;img src="img/tidyr.svg" width="500" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-righ[
+
+* Manipulate datasets to have **tidy** data
+
+* Main functions are `pivot_longer()`, `pivot_wider`, and `separate()`
+
+* Other functions like `drop_na()` and `nest()`
+
+]
+
+---
+
+## Pivoting datasets
+
+### From long to wide dataset
+
+
+```r
+dat %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 6
+##      id cond1 cond2 value  cov1  cov2
+##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 A     1     114.   1.12 0.487
+## 2     1 A     2     110.   1.12 0.487
+## 3     1 A     3     114.   1.12 0.487
+## 4     1 B     1      89.7  1.12 0.487
+## 5     1 B     2      97.1  1.12 0.487
+## 6     1 B     3      81.9  1.12 0.487
+```
+
+---
+
+## Pivoting datasets
+
+### From long to wide dataset
+
+
+```r
+dat %&gt;% 
+  pivot_wider(names_from = c(cond1, cond2), values_from = value) %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 12
+##      id    cov1    cov2   A_1   A_2   A_3   B_1   B_2   B_3   C_1   C_2   C_3
+##   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1  1.12    0.487  114.  110.  114.   89.7  97.1  81.9  96.6  97.1 134. 
+## 2     2  0.661   0.537  107.   92.2  77.7 130.   98.7  90.8  97.7  98.0  88.8
+## 3     3  0.366   0.961  104.  103.   91.4  99.3  96.0  96.8  94.6  82.0  95.9
+## 4     4  1.74   -0.0400  72.2 106.   80.0 106.   89.5  93.5  90.3  79.8 112. 
+## 5     5 -0.184   0.440  109.   93.0 106.   79.8  90.5 103.  106.   94.5 106. 
+## 6     6 -0.0139  1.27    97.7 106.   98.3  97.1 101.   87.4  91.9 120.   91.6
+```
+
+---
+
+### From wide to long dataset
+
+
+```r
+dat %&gt;% 
+  pivot_wider(names_from = c(cond1, cond2), values_from = value) %&gt;% 
+  pivot_longer(4:12, names_to = "cond", values_to = "value")
+```
+
+```
+## # A tibble: 90 x 5
+##       id  cov1  cov2 cond  value
+##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+##  1     1 1.12  0.487 A_1   114. 
+##  2     1 1.12  0.487 A_2   110. 
+##  3     1 1.12  0.487 A_3   114. 
+##  4     1 1.12  0.487 B_1    89.7
+##  5     1 1.12  0.487 B_2    97.1
+##  6     1 1.12  0.487 B_3    81.9
+##  7     1 1.12  0.487 C_1    96.6
+##  8     1 1.12  0.487 C_2    97.1
+##  9     1 1.12  0.487 C_3   134. 
+## 10     2 0.661 0.537 A_1   107. 
+## # … with 80 more rows
+```
+
+---
+
+### From wide to long dataset
+
+
+```r
+dat %&gt;% 
+  pivot_wider(names_from = c(cond1, cond2), values_from = value) %&gt;% 
+  pivot_longer(4:12, names_to = "cond", values_to = "value") %&gt;% 
+  separate(cond, into = c("cond1", "cond2"), sep = "_") %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 6
+##      id  cov1  cov2 cond1 cond2 value
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
+## 1     1  1.12 0.487 A     1     114. 
+## 2     1  1.12 0.487 A     2     110. 
+## 3     1  1.12 0.487 A     3     114. 
+## 4     1  1.12 0.487 B     1      89.7
+## 5     1  1.12 0.487 B     2      97.1
+## 6     1  1.12 0.487 B     3      81.9
+```
+
+---
+
+# Dplyr
+
+.pull-left[
+&lt;img src="img/dplyr.svg" width="400" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-righ[
+
+* This is a very comprehensive package with several functions to create new columns, aggregate datasets, select rows, etc.
+
+* `mutate()` adds new variables that are functions of existing variables
+* `select()` picks variables based on their names.
+* `filter()` picks cases based on their values.
+* `summarise()` reduces multiple values down to a single summary.
+* `arrange()` changes the ordering of the rows.
+
+]
+
+---
+
+# Dplyr
+
+
+```r
+dat %&gt;% 
+  mutate(new_col = some_functions(other_col))
+```
+
+
+```r
+dat %&gt;% 
+  mutate(new_col = cov1 * cov2) %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 7
+##      id cond1 cond2 value  cov1  cov2 new_col
+##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+## 1     1 A     1     114.   1.12 0.487   0.543
+## 2     1 A     2     110.   1.12 0.487   0.543
+## 3     1 A     3     114.   1.12 0.487   0.543
+## 4     1 B     1      89.7  1.12 0.487   0.543
+## 5     1 B     2      97.1  1.12 0.487   0.543
+## 6     1 B     3      81.9  1.12 0.487   0.543
+```
+
+---
+
+# Dplyr
+
+
+```r
+dat %&gt;% 
+  pivot_wider(names_from = c(cond1, cond2), values_from = value) %&gt;% 
+  select(id, starts_with("A")) %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 4
+##      id   A_1   A_2   A_3
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 114.  110.  114. 
+## 2     2 107.   92.2  77.7
+## 3     3 104.  103.   91.4
+## 4     4  72.2 106.   80.0
+## 5     5 109.   93.0 106. 
+## 6     6  97.7 106.   98.3
+```
+
+---
+
+# Dplyr
+
+
+```r
+dat %&gt;% 
+  filter(cond1 == "A" &amp; cond2 == 2) %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 6
+##      id cond1 cond2 value    cov1    cov2
+##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1     1 A     2     110.   1.12    0.487 
+## 2     2 A     2      92.2  0.661   0.537 
+## 3     3 A     2     103.   0.366   0.961 
+## 4     4 A     2     106.   1.74   -0.0400
+## 5     5 A     2      93.0 -0.184   0.440 
+## 6     6 A     2     106.  -0.0139  1.27
+```
+
+---
+
+# Dplyr
+
+
+```r
+dat %&gt;% 
+  group_by(cond1, cond2) %&gt;% 
+  summarise(mean = mean(value),
+            sd = sd(value)) %&gt;% 
+  arrange(cond1)
+```
+
+```
+## `summarise()` regrouping output by 'cond1' (override with `.groups` argument)
+```
+
+```
+## # A tibble: 9 x 4
+## # Groups:   cond1 [3]
+##   cond1 cond2  mean    sd
+##   &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 A     1      97.5 12.7 
+## 2 A     2     104.   8.04
+## 3 A     3      93.6 11.2 
+## 4 B     1     102.  14.0 
+## 5 B     2      96.4  4.70
+## 6 B     3      94.9  6.85
+## 7 C     1      97.4  5.97
+## 8 C     2      96.6 12.1 
+## 9 C     3     101.  14.4
+```
+
+---
+
+# GGoplot2
+
+.pull-left[
+&lt;img src="img/ggplot2.svg" width="300" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+* Easy to integrate with workflow and pipelines
+
+* Lack of `%&gt;%` functions &lt;sup&gt;3&lt;/sup&gt;
+
+* Amazing way to combine different layers of plot components
+
+]
+
+.footnote[[3] Hadley Wickam [talk](https://www.youtube.com/watch?v=vYwXMnC03I4&amp;t=2203s) about "mistakes" in developing the tidyverse
+]
+
+---
+
+# GGplot2
+
+
+```r
+dat %&gt;% 
+  select(cov1, cov2) %&gt;% 
+  ggplot(aes(x = cov1, y = cov2)) +
+  geom_point()
+```
+
+&lt;img src="tidy_presentation_files/figure-html/unnamed-chunk-34-1.png" height="400" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Broom
+
+.pull-left[
+&lt;img src="img/broom.svg" width="300" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+* Manipulate **fitted models** and return **tidy data**
+
+* Very useful for extracting information from multiple models in a easy way
+
+* There are some expansions like `broom mixed` for `lme4` objects
+
+]
+
+---
+
+# Broom
+
+
+```r
+fit &lt;- lm(value ~ cond1 * cond2 + cov1 + cov2, data = dat)
+tidy(fit) %&gt;%  head()
+```
+
+```
+## # A tibble: 6 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)   97.4        3.63   26.8    1.88e-41
+## 2 cond1B         4.24       4.76    0.890  3.76e- 1
+## 3 cond1C        -0.161      4.76   -0.0338 9.73e- 1
+## 4 cond22         6.60       4.76    1.39   1.70e- 1
+## 5 cond23        -3.93       4.76   -0.825  4.12e- 1
+## 6 cov1          -1.14       1.44   -0.792  4.31e- 1
+```
+
+```r
+glance(fit)
+```
+
+```
+## # A tibble: 1 x 12
+##   r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC deviance
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+## 1     0.103       -0.0104  10.7     0.908   0.530    10  -335.  694.  724.    8966.
+## # … with 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;
+```
+
+---
+
+# Other packages
+
+.pull-left[
+
+### String manipulation
+
+&lt;img src="img/stringr.svg" width="250" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+### Work with dates
+
+&lt;img src="img/lubridate.svg" width="250" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Other packages
+
+.pull-left[
+
+### Datatable power, dyplr code
+
+&lt;img src="img/dtplyr.svg" width="500" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+### Modelling (e.g., broom)
+
+&lt;img src="img/tidymodels.svg" width="250" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Other packages
+
+.pull-left[
+
+### Tidybayes
+
+&lt;img src="img/tidybayes.png" width="400" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+* Some **geoms** for `ggplo2` and function to manage fitted **bayesian models**
+
+* Support `rstanarm`, `brms`
+
+&lt;img src="img/tidybayes_plot.png" width="600" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Some Resources
+
+## R4DS - R for Data Science
+
+.pull-left[
+&lt;img src="img/r4ds.jpg" width="200" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+* Best book for the **tidy** approach the **data science** in general
+
+&lt;/br&gt;
+
+* Especially the [many models](https://r4ds.had.co.nz/many-models.html) chapter
+
+]
+
+.footnote[[R4DS Book](https://r4ds.had.co.nz/)]
+
+---
+
+# Talks
+
+* [David Robinson - Ten Tremendous Tricks in the Tidyverse](https://www.youtube.com/watch?v=NDHSBUN_rVU)
+
+* [David Robinson - Teach the Tidyverse to Beginners](https://www.youtube.com/watch?v=dT5A0sAWc2I)
+
+* [Hadley Wickham - Managing many models with R](https://www.youtube.com/watch?v=rz3_FDVt9eg&amp;t)
+
+* [Hadley Wickham - Mistakes of the Tidyverse](https://www.youtube.com/watch?v=vYwXMnC03I4&amp;t)
+
+* [Hadley Wickham - Data visualization and data science](https://www.youtube.com/watch?v=9YTNYT1maa4&amp;t)
+
+* [Emily Robinson - The lesser known stars of the Tidyverse](https://www.youtube.com/watch?v=ax4LXQ5t38k)
+
+---
+
+class: inverse, center, middle
+
+&lt;br/&gt;
+&lt;br/&gt;
+
+### .large[[filippo.gambarota@phd.unipd.it](mailto:filippo.gambarota@phd.unipd.it)]
+
+&lt;br/&gt;
+&lt;br/&gt;
+
+.tiny[Slides made with the [Xaringan](https://github.com/yihui/xaringan) package by [Yihui Xie](https://yihui.name/)]
+
+
+&lt;img src="img/final_logo.svg" width="450" style="display: block; margin: auto;" /&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

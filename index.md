@@ -1,3 +1,3 @@
 # Slides
 
-* [Introduction to Tidyverse]("Tidyverse Presentation/tidy_presentation.html")
+* [Introduction to Tidyverse](tidyverse_presentation/tidy_presentation.html)

@@ -94,43 +94,35 @@ class: inverse, middle, center
 .pull-left[
 
 
-```r
-head(dat)
 ```
+## # A tibble: 6 x 4
+##      id        A       B       C
+##   &lt;int&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1     1 -0.566    0.0219 -0.0107
+## 2     2  1.33    -1.67   -0.390 
+## 3     3  1.09    -0.662   0.882 
+## 4     4 -0.453   -0.368   0.237 
+## 5     5  0.00243  1.20   -1.72  
+## 6     6 -2.43     0.693   1.80
+```
+]
+
+--
+.pull-right[
+
 
 ```
 ## # A tibble: 6 x 3
 ##      id cond      cov
 ##   &lt;int&gt; &lt;chr&gt;   &lt;dbl&gt;
-## 1     1 A     -0.0322
-## 2     1 B     -1.19  
-## 3     1 C      0.752 
-## 4     2 A     -1.27  
-## 5     2 B     -0.122 
-## 6     2 C     -0.527
-```
-]
-
-.pull-right[
-
-
-```r
-dat %&gt;% 
-  pivot_wider(names_from = cond, values_from = cov) %&gt;% 
-  head()
+## 1     1 A     -0.566 
+## 2     1 B      0.0219
+## 3     1 C     -0.0107
+## 4     2 A      1.33  
+## 5     2 B     -1.67  
+## 6     2 C     -0.390
 ```
 
-```
-## # A tibble: 6 x 4
-##      id       A      B      C
-##   &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-## 1     1 -0.0322 -1.19   0.752
-## 2     2 -1.27   -0.122 -0.527
-## 3     3 -0.297   1.24   0.562
-## 4     4  0.955   0.361 -1.28 
-## 5     5 -1.33   -0.735  0.773
-## 6     6  0.792   0.217  0.912
-```
 ]
 
 ---
@@ -191,11 +183,7 @@ iris$Sepal.Length %&gt;%
 
 
 
-The previous simple example is not completely appropriate, the `pipe` is useless. However let's assume a more complicated example where:
-
-1. aggregate data by a `factor` using the `mean()` 
-2. create a new columns with some operations between columns
-3. rename a variable
+The previous simple example is not completely appropriate, the `pipe` is useless. However let's assume a more complicated example:
 
 --
 
@@ -206,15 +194,21 @@ head(dat)
 
 ```
 ## # A tibble: 6 x 6
-##      id cond1 cond2 value    cov1   cov2
-##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
-## 1     1 A     1     103.  -0.0191 0.0198
-## 2     1 A     2      73.9 -0.0191 0.0198
-## 3     1 A     3     114.  -0.0191 0.0198
-## 4     1 B     1      96.9 -0.0191 0.0198
-## 5     1 B     2     106.  -0.0191 0.0198
-## 6     1 B     3     109.  -0.0191 0.0198
+##      id cond1 cond2 value  cov1   cov2
+##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1 A     1      93.6 0.691 -0.966
+## 2     1 A     2     111.  0.691 -0.966
+## 3     1 A     3     115.  0.691 -0.966
+## 4     1 B     1      96.8 0.691 -0.966
+## 5     1 B     2      90.8 0.691 -0.966
+## 6     1 B     3      99.6 0.691 -0.966
 ```
+
+--
+
+1. aggregate data by a `factor` using the `mean()` 
+2. create a new columns with some operations between columns
+3. rename a variable
 
 ---
 # Without pipes and tidyverse
@@ -229,13 +223,13 @@ head(dat)
 ```
 
 ```
-##   subject cond1      cov1      cov2     value
-## 1       2     A  1.366700 -1.563120 111.39282
-## 2       2     B  1.366700 -1.563120 104.73908
-## 3       2     C  1.366700 -1.563120  92.73584
-## 4       7     A -1.269611 -1.147661  94.16686
-## 5       7     B -1.269611 -1.147661 108.36546
-## 6       7     C -1.269611 -1.147661 100.22601
+##   subject cond1       cov1       cov2     value
+## 1       8     A  0.3341236 -1.9160473 103.35951
+## 2       8     B  0.3341236 -1.9160473 105.96694
+## 3       8     C  0.3341236 -1.9160473  97.71871
+## 4      10     A -0.2875764 -0.7966907  94.40734
+## 5      10     B -0.2875764 -0.7966907  93.79386
+## 6      10     C -0.2875764 -0.7966907  93.52982
 ```
 
 --
@@ -274,12 +268,12 @@ dat %&gt;%
 ## # A tibble: 6 x 6
 ##   subject cond1   cov1   cov2  mean    sd
 ##     &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1       1 A     -1.10  -0.405  96.4  4.88
-## 2       1 B     -1.10  -0.405 101.   7.40
-## 3       1 C     -1.10  -0.405 103.   6.69
-## 4       2 A      0.373  0.336 101.   9.59
-## 5       2 B      0.373  0.336 102.   4.24
-## 6       2 C      0.373  0.336  99.3 13.6
+## 1       1 A      0.515 -1.10   90.7  2.75
+## 2       1 B      0.515 -1.10   92.5  4.65
+## 3       1 C      0.515 -1.10  112.  11.6 
+## 4       2 A     -1.48  -0.861  93.7  9.87
+## 5       2 B     -1.48  -0.861 103.  10.9 
+## 6       2 C     -1.48  -0.861 103.   4.25
 ```
 
 ---
@@ -413,19 +407,19 @@ dat %&gt;%
 ## # A tibble: 6 x 6
 ##      id cond1 cond2 value  cov1   cov2
 ##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1     1 A     1      98.3 -1.18 -0.277
-## 2     1 A     2     100.  -1.18 -0.277
-## 3     1 A     3      90.9 -1.18 -0.277
-## 4     1 B     1     101.  -1.18 -0.277
-## 5     1 B     2     108.  -1.18 -0.277
-## 6     1 B     3      93.4 -1.18 -0.277
+## 1     1 A     1      91.9 0.818 -0.765
+## 2     1 A     2      92.6 0.818 -0.765
+## 3     1 A     3      87.5 0.818 -0.765
+## 4     1 B     1      91.7 0.818 -0.765
+## 5     1 B     2      97.5 0.818 -0.765
+## 6     1 B     3      88.3 0.818 -0.765
 ```
 
 ---
 
-## Pivoting datasets
+# Tidyr::pivot_wider()
 
-### From long to wide dataset
+From long to wide dataset
 
 
 ```r
@@ -436,47 +430,47 @@ dat %&gt;%
 
 ```
 ## # A tibble: 6 x 12
-##      id   cov1    cov2   A_1   A_2   A_3   B_1   B_2   B_3   C_1   C_2   C_3
-##   &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     1 -1.18  -0.277   98.3 100.   90.9 101.  108.   93.4 106.   95.3 108. 
-## 2     2  0.294  0.252  110.   91.0 103.  105.   97.4 105.  113.   85.4  99.7
-## 3     3 -1.03   0.0898 102.   83.4 106.  104.  111.   97.1 112.   97.8  98.3
-## 4     4 -0.648  1.39    92.0  88.0 104.  106.   73.4  97.4 123.   82.8 102. 
-## 5     5  0.180  0.275   87.3 103.   96.3  96.3  89.9  97.9 102.  101.   96.5
-## 6     6 -0.358 -0.0788 102.   94.0 111.  102.   93.5  94.2  96.3 103.  104.
+##      id   cov1   cov2   A_1   A_2   A_3   B_1   B_2   B_3   C_1   C_2   C_3
+##   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1  0.818 -0.765  91.9  92.6  87.5  91.7  97.5  88.3  98.4 120.  117. 
+## 2     2 -1.17  -0.601 105.   89.9  86.4 100.   94.1 115.  106.   98.1 105. 
+## 3     3 -1.06   0.179  97.8  99.6 110.   93.4  68.7  96.7 107.   88.2  92.7
+## 4     4  0.590 -0.107 101.   97.8  97.8  93.0 106.  102.   90.7 115.   89.2
+## 5     5  2.39  -0.405 110.   97.9  81.0 130.  110.  113.  109.  101.  108. 
+## 6     6 -0.716  1.17  101.   91.4  94.9  95.4  99.5 110.  113.  100.  116.
 ```
 
 ---
 
-### From wide to long dataset
+# Tidyr::pivot_longer()
+
+From wide to long dataset
 
 
 ```r
 dat %&gt;% 
   pivot_wider(names_from = c(cond1, cond2), values_from = value) %&gt;% 
-  pivot_longer(4:12, names_to = "cond", values_to = "value")
+  pivot_longer(4:12, names_to = "cond", values_to = "value") %&gt;% 
+  head()
 ```
 
 ```
-## # A tibble: 90 x 5
-##       id   cov1   cov2 cond  value
-##    &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
-##  1     1 -1.18  -0.277 A_1    98.3
-##  2     1 -1.18  -0.277 A_2   100. 
-##  3     1 -1.18  -0.277 A_3    90.9
-##  4     1 -1.18  -0.277 B_1   101. 
-##  5     1 -1.18  -0.277 B_2   108. 
-##  6     1 -1.18  -0.277 B_3    93.4
-##  7     1 -1.18  -0.277 C_1   106. 
-##  8     1 -1.18  -0.277 C_2    95.3
-##  9     1 -1.18  -0.277 C_3   108. 
-## 10     2  0.294  0.252 A_1   110. 
-## # ... with 80 more rows
+## # A tibble: 6 x 5
+##      id  cov1   cov2 cond  value
+##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+## 1     1 0.818 -0.765 A_1    91.9
+## 2     1 0.818 -0.765 A_2    92.6
+## 3     1 0.818 -0.765 A_3    87.5
+## 4     1 0.818 -0.765 B_1    91.7
+## 5     1 0.818 -0.765 B_2    97.5
+## 6     1 0.818 -0.765 B_3    88.3
 ```
 
 ---
 
-### From wide to long dataset
+# Tidyr::separate()
+
+Separate a column in multiple columns considering a pattern
 
 
 ```r
@@ -491,12 +485,12 @@ dat %&gt;%
 ## # A tibble: 6 x 6
 ##      id  cov1   cov2 cond1 cond2 value
 ##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
-## 1     1 -1.18 -0.277 A     1      98.3
-## 2     1 -1.18 -0.277 A     2     100. 
-## 3     1 -1.18 -0.277 A     3      90.9
-## 4     1 -1.18 -0.277 B     1     101. 
-## 5     1 -1.18 -0.277 B     2     108. 
-## 6     1 -1.18 -0.277 B     3      93.4
+## 1     1 0.818 -0.765 A     1      91.9
+## 2     1 0.818 -0.765 A     2      92.6
+## 3     1 0.818 -0.765 A     3      87.5
+## 4     1 0.818 -0.765 B     1      91.7
+## 5     1 0.818 -0.765 B     2      97.5
+## 6     1 0.818 -0.765 B     3      88.3
 ```
 
 ---
@@ -521,7 +515,9 @@ dat %&gt;%
 
 ---
 
-# Dplyr
+# Dplyr::mutate()
+
+Create new columns with complex operations and functions
 
 
 ```r
@@ -540,41 +536,45 @@ dat %&gt;%
 ## # A tibble: 6 x 7
 ##      id cond1 cond2 value  cov1   cov2 new_col
 ##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1     1 A     1      98.3 -1.18 -0.277   0.327
-## 2     1 A     2     100.  -1.18 -0.277   0.327
-## 3     1 A     3      90.9 -1.18 -0.277   0.327
-## 4     1 B     1     101.  -1.18 -0.277   0.327
-## 5     1 B     2     108.  -1.18 -0.277   0.327
-## 6     1 B     3      93.4 -1.18 -0.277   0.327
+## 1     1 A     1      91.9 0.818 -0.765  -0.626
+## 2     1 A     2      92.6 0.818 -0.765  -0.626
+## 3     1 A     3      87.5 0.818 -0.765  -0.626
+## 4     1 B     1      91.7 0.818 -0.765  -0.626
+## 5     1 B     2      97.5 0.818 -0.765  -0.626
+## 6     1 B     3      88.3 0.818 -0.765  -0.626
 ```
 
 ---
 
-# Dplyr
+# Dplyr::select()
+
+Select columns in a more readable way
 
 
 ```r
 dat %&gt;% 
   pivot_wider(names_from = c(cond1, cond2), values_from = value) %&gt;% 
-  select(id, starts_with("A")) %&gt;% 
+  select(id, starts_with("A"), ends_with("3")) %&gt;% 
   head()
 ```
 
 ```
-## # A tibble: 6 x 4
-##      id   A_1   A_2   A_3
-##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     1  98.3 100.   90.9
-## 2     2 110.   91.0 103. 
-## 3     3 102.   83.4 106. 
-## 4     4  92.0  88.0 104. 
-## 5     5  87.3 103.   96.3
-## 6     6 102.   94.0 111.
+## # A tibble: 6 x 6
+##      id   A_1   A_2   A_3   B_3   C_3
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1  91.9  92.6  87.5  88.3 117. 
+## 2     2 105.   89.9  86.4 115.  105. 
+## 3     3  97.8  99.6 110.   96.7  92.7
+## 4     4 101.   97.8  97.8 102.   89.2
+## 5     5 110.   97.9  81.0 113.  108. 
+## 6     6 101.   91.4  94.9 110.  116.
 ```
 
 ---
 
-# Dplyr
+# Dplyr::filter()
+
+Select rows with multiple conditions
 
 
 ```r
@@ -585,19 +585,21 @@ dat %&gt;%
 
 ```
 ## # A tibble: 6 x 6
-##      id cond1 cond2 value   cov1    cov2
-##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1     1 A     2     100.  -1.18  -0.277 
-## 2     2 A     2      91.0  0.294  0.252 
-## 3     3 A     2      83.4 -1.03   0.0898
-## 4     4 A     2      88.0 -0.648  1.39  
-## 5     5 A     2     103.   0.180  0.275 
-## 6     6 A     2      94.0 -0.358 -0.0788
+##      id cond1 cond2 value   cov1   cov2
+##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1     1 A     2      92.6  0.818 -0.765
+## 2     2 A     2      89.9 -1.17  -0.601
+## 3     3 A     2      99.6 -1.06   0.179
+## 4     4 A     2      97.8  0.590 -0.107
+## 5     5 A     2      97.9  2.39  -0.405
+## 6     6 A     2      91.4 -0.716  1.17
 ```
 
 ---
 
-# Dplyr
+# Dplyr::arrange()
+
+Reorder rows based on multiple columns
 
 
 ```r
@@ -605,7 +607,8 @@ dat %&gt;%
   group_by(cond1, cond2) %&gt;% 
   summarise(mean = mean(value),
             sd = sd(value)) %&gt;% 
-  arrange(cond1)
+  arrange(cond1) %&gt;% 
+  head()
 ```
 
 ```
@@ -613,19 +616,44 @@ dat %&gt;%
 ```
 
 ```
-## # A tibble: 9 x 4
-## # Groups:   cond1 [3]
+## # A tibble: 6 x 4
+## # Groups:   cond1 [2]
 ##   cond1 cond2  mean    sd
 ##   &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 A     1      98.1 10.2 
-## 2 A     2      95.3  6.36
-## 3 A     3     106.   7.93
-## 4 B     1     101.   9.49
-## 5 B     2      96.0 12.6 
-## 6 B     3     100.   6.78
-## 7 C     1     105.  13.5 
-## 8 C     2     102.  11.7 
-## 9 C     3     101.   9.93
+## 1 A     1     104.   7.32
+## 2 A     2      97.5  7.36
+## 3 A     3      93.5  8.15
+## 4 B     1      97.6 13.9 
+## 5 B     2      98.3 12.6 
+## 6 B     3     101.   9.13
+```
+
+---
+
+# Dplyr::case_when()
+
+Is an extension of a `ifelse()` statement in a more compact way
+
+
+```r
+dat %&gt;% 
+  mutate(new_fac = case_when(value &gt; 100 &amp; cond1 == "A" ~ "level1",
+                             value &lt; 50 &amp; cond2 == 2 ~ "level2",
+                             value != 100 &amp; cond2 == 1 &amp; cov1 &gt; 0.5 ~ "level3",
+                             TRUE ~ "level4")) %&gt;% 
+  head()
+```
+
+```
+## # A tibble: 6 x 7
+##      id cond1 cond2 value  cov1   cov2 new_fac
+##   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  
+## 1     1 A     1      91.9 0.818 -0.765 level3 
+## 2     1 A     2      92.6 0.818 -0.765 level4 
+## 3     1 A     3      87.5 0.818 -0.765 level4 
+## 4     1 B     1      91.7 0.818 -0.765 level3 
+## 5     1 B     2      97.5 0.818 -0.765 level4 
+## 6     1 B     3      88.3 0.818 -0.765 level4
 ```
 
 ---
@@ -661,7 +689,7 @@ dat %&gt;%
   geom_point()
 ```
 
-&lt;img src="tidyverse_presentation_files/figure-html/unnamed-chunk-34-1.png" height="400" style="display: block; margin: auto;" /&gt;
+&lt;img src="tidyverse_presentation_files/figure-html/unnamed-chunk-35-1.png" height="400" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -677,13 +705,13 @@ dat %&gt;%
 
 * Very useful for extracting information from multiple models in a easy way
 
-* There are some expansions like `broom mixed` for `lme4` objects
+* There are some expansions like `broom mixed` for `lme4` objects and `broomExtra` for also `brms` models
 
 ]
 
 ---
 
-# Broom
+# Broom::tidy() and Broom::glance()
 
 
 ```r
@@ -695,12 +723,12 @@ tidy(fit) %&gt;%  head()
 ## # A tibble: 6 x 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 (Intercept)    98.2       3.18    30.9   7.14e-46
-## 2 cond1B          2.74      4.49     0.609 5.44e- 1
-## 3 cond1C          6.93      4.49     1.54  1.27e- 1
-## 4 cond22         -2.82      4.49    -0.628 5.32e- 1
-## 5 cond23          7.57      4.49     1.68  9.61e- 2
-## 6 cov1            1.14      1.13     1.01  3.18e- 1
+## 1 (Intercept)   104.        3.17    32.7   1.12e-47
+## 2 cond1B         -6.61      4.45    -1.48  1.42e- 1
+## 3 cond1C         -2.73      4.45    -0.612 5.42e- 1
+## 4 cond22         -6.67      4.45    -1.50  1.39e- 1
+## 5 cond23        -10.6       4.45    -2.39  1.93e- 2
+## 6 cov1            1.99      1.10     1.82  7.33e- 2
 ```
 
 ```r
@@ -711,7 +739,7 @@ glance(fit)
 ## # A tibble: 1 x 12
 ##   r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     0.142        0.0339  10.0      1.31   0.238    10  -330.  683.  713.
+## 1     0.145        0.0366  9.96      1.34   0.225    10  -329.  681.  711.
 ## # ... with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;
 ```
 
@@ -721,7 +749,7 @@ glance(fit)
 
 .pull-left[
 
-### String manipulation
+### Strings manipulation
 
 &lt;img src="img/stringr.svg" width="250" style="display: block; margin: auto;" /&gt;
 ]

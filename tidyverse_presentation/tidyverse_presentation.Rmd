@@ -103,18 +103,20 @@ dat$cov <- rnorm(nrow(dat))
 
 .pull-left[
 
-```{r, echo=T}
-head(dat)
-```
-]
-
-.pull-right[
-
-```{r, echo=T}
+```{r echo=FALSE}
 dat %>% 
   pivot_wider(names_from = cond, values_from = cov) %>% 
   head()
 ```
+]
+
+--
+.pull-right[
+
+```{r, echo=F}
+head(dat)
+```
+
 ]
 
 ---
@@ -177,17 +179,19 @@ dat$cov1 <- rep(rnorm(10), each = 9)
 dat$cov2 <- rep(rnorm(10), each = 9)
 ```
 
-The previous simple example is not completely appropriate, the `pipe` is useless. However let's assume a more complicated example where:
-
-1. aggregate data by a `factor` using the `mean()` 
-2. create a new columns with some operations between columns
-3. rename a variable
+The previous simple example is not completely appropriate, the `pipe` is useless. However let's assume a more complicated example:
 
 --
 
 ```{r}
 head(dat)
 ```
+
+--
+
+1. aggregate data by a `factor` using the `mean()` 
+2. create a new columns with some operations between columns
+3. rename a variable
 
 ---
 # Without pipes and tidyverse
@@ -362,9 +366,9 @@ dat %>%
 
 ---
 
-## Pivoting datasets
+# Tidyr::pivot_wider()
 
-### From long to wide dataset
+From long to wide dataset
 
 ```{r}
 dat %>% 
@@ -374,17 +378,22 @@ dat %>%
 
 ---
 
-### From wide to long dataset
+# Tidyr::pivot_longer()
+
+From wide to long dataset
 
 ```{r}
 dat %>% 
   pivot_wider(names_from = c(cond1, cond2), values_from = value) %>% 
-  pivot_longer(4:12, names_to = "cond", values_to = "value")
+  pivot_longer(4:12, names_to = "cond", values_to = "value") %>% 
+  head()
 ```
 
 ---
 
-### From wide to long dataset
+# Tidyr::separate()
+
+Separate a column in multiple columns considering a pattern
 
 ```{r}
 dat %>% 
@@ -418,7 +427,9 @@ knitr::include_graphics("img/dplyr.svg")
 
 ---
 
-# Dplyr
+# Dplyr::mutate()
+
+Create new columns with complex operations and functions
 
 ```{r, eval = F}
 dat %>% 
@@ -433,18 +444,22 @@ dat %>%
 
 ---
 
-# Dplyr
+# Dplyr::select()
+
+Select columns in a more readable way
 
 ```{r}
 dat %>% 
   pivot_wider(names_from = c(cond1, cond2), values_from = value) %>% 
-  select(id, starts_with("A")) %>% 
+  select(id, starts_with("A"), ends_with("3")) %>% 
   head()
 ```
 
 ---
 
-# Dplyr
+# Dplyr::filter()
+
+Select rows with multiple conditions
 
 ```{r}
 dat %>% 
@@ -454,14 +469,32 @@ dat %>%
 
 ---
 
-# Dplyr
+# Dplyr::arrange()
+
+Reorder rows based on multiple columns
 
 ```{r}
 dat %>% 
   group_by(cond1, cond2) %>% 
   summarise(mean = mean(value),
             sd = sd(value)) %>% 
-  arrange(cond1)
+  arrange(cond1) %>% 
+  head()
+```
+
+---
+
+# Dplyr::case_when()
+
+Is an extension of a `ifelse()` statement in a more compact way
+
+```{r}
+dat %>% 
+  mutate(new_fac = case_when(value > 100 & cond1 == "A" ~ "level1",
+                             value < 50 & cond2 == 2 ~ "level2",
+                             value != 100 & cond2 == 1 & cov1 > 0.5 ~ "level3",
+                             TRUE ~ "level4")) %>% 
+  head()
 ```
 
 ---
@@ -514,13 +547,13 @@ knitr::include_graphics("img/broom.svg")
 
 * Very useful for extracting information from multiple models in a easy way
 
-* There are some expansions like `broom mixed` for `lme4` objects
+* There are some expansions like `broom mixed` for `lme4` objects and `broomExtra` for also `brms` models
 
 ]
 
 ---
 
-# Broom
+# Broom::tidy() and Broom::glance()
 
 ```{r}
 fit <- lm(value ~ cond1 * cond2 + cov1 + cov2, data = dat)
@@ -534,7 +567,7 @@ glance(fit)
 
 .pull-left[
 
-### String manipulation
+### Strings manipulation
 
 ```{r, echo=F, out.width=250}
 knitr::include_graphics("img/stringr.svg")

@@ -4,4 +4,4 @@ This repository is a collections of my slides and talks. All presentations are w
 
 # Slides
 
-* [Introduction to Tidyverse](tidyverse_presentation/tidyverse_presentation.html)
+* [Introduction to Tidyverse](tidyverse_presentation/tidyverse_presentation.html) - [Psicostat](https://ip146179.psy.unipd.it/psicostat/web/index.html) 11/12/2020 - [PDF](tidyverse_presentation/tidyverse_presentation.pdf)

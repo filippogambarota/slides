@@ -11,11 +11,17 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: '16:9'
+params:
+  pdf_button: TRUE
 ---
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(echo = T, fig.align = "center")
+
+# File name Setup
+
+filename = stringr::str_replace(knitr::current_input(), ".Rmd", "")
 
 # Packages
 
@@ -680,10 +686,14 @@ class: inverse, center, middle
 ### .large[[filippo.gambarota@phd.unipd.it](mailto:filippo.gambarota@phd.unipd.it)]
 
 <br/>
+
+```{r, eval=params$pdf_button, results='asis', echo=FALSE}
+glue::glue("[Download PDF slides]({file}.pdf)", file = filename)
+```
+
 <br/>
 
 .tiny[Slides made with the [Xaringan](https://github.com/yihui/xaringan) package by [Yihui Xie](https://yihui.name/)]
-
 
 ```{r echo=FALSE, out.width=450}
 knitr::include_graphics("img/final_logo.svg")

@@ -12,7 +12,7 @@ This repository is a collections of my slides and talks. All presentations are w
 
 ## Statistics
 
-* Introduction to Meta-analysis - [Lab Meeting](meta_analysis_presentation/meta_analysis_presentation.html)
+* Introduction to Meta-analysis - [HTML](meta_analysis_presentation/meta_analysis_presentation.html) - [PDF](meta_analysis_presentation/meta_analysis_presentation.pdf)
 
 ## Consciousness
 

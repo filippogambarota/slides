@@ -10,6 +10,9 @@ This repository is a collections of my slides and talks. All presentations are w
 * Creating an Academic Website with Hugo - [HTML](https://filippogambarota.github.io/hugo_tutorial/#1) - [Repository](https://github.com/filippogambarota/hugo_tutorial)
 * Bibliographic Research Tips - [HTML](https://filippogambarota.github.io/bibresearch/#1)
 
+## Statistics
+
+* Introduction to Meta-analysis - [Lab Meeting](meta_analysis_presentation/meta_analysis_presentation.html)
 
 ## Consciousness
 

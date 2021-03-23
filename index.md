@@ -18,3 +18,7 @@ This repository is a collections of my slides and talks. All presentations are w
 
 * Introduction to the Neural Correlate of Consciousness - [Mechanism of Consciousness and Error Monitoring Course - University of Padova] - [Slides](https://docs.google.com/presentation/d/1hRqtLqWsM4qi7SeMOmPYG1HsRrcnDrTzhluVk-neSB8/edit?usp=sharing)
 * Introduction to the Scientific Study of Consciousness - [General Psychology Course - University of Padova] - [Slides](https://docs.google.com/presentation/d/1PdIhW8IfYUBBRST6MeLIUuLYAIC804Wt8sSdJKn2ZIg/edit?usp=sharing) [Italian]
+
+## Working Memory
+
+* Visual Working Memory and Face Processing - [Cognitive and Functional Bases of Intersubjectivity - University of Padova] - [Slides](https://docs.google.com/presentation/d/1qVY2WTcfNNQgXm92dcw1jd8wPkSU4N267HcSWYNEVB0/edit#slide=id.gc96481fd19_0_343)

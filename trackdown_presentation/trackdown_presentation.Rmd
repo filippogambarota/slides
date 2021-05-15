@@ -255,7 +255,7 @@ knitr::include_graphics("img/git_flow.svg")
 **Word-like approach**
 
 ```{r, out.extra='style="border: none;"'}
-knitr::include_url("https://docs.google.com/document/d/1sFyg4PNIHZYAXn6UjsnQ9peHzbuzw9BjmlbMIs1W_tM/edit#", height = 400)
+knitr::include_url("https://docs.google.com/document/d/1sFyg4PNIHZYAXn6UjsnQ9peHzbuzw9BjmlbMIs1W_tM/edit#")
 ```
 
 ]
@@ -338,8 +338,8 @@ class: inverse, center, middle
 
 .pull-left[
 
-```{r out.extra='style="border: none;" type="text/plain"'}
-knitr::include_url("files/awesome_document.Rmd")
+```{r out.extra='style="border: none;"'}
+knitr::include_url("files/awesome_document.txt")
 ```
 
 ]
@@ -382,3 +382,6 @@ class: final-slide, center, middle
 ```{r echo=FALSE, out.width="20%"}
 knitr::include_graphics("img/final_logo.svg")
 ```
+
+
+

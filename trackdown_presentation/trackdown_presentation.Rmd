@@ -182,17 +182,16 @@ knitr::include_graphics("img/knitr.svg")
 
 # An example...
 
-.scroll-output[
-
-````
-`r paste(readLines('files/example_rmd.Rmd'), collapse = '\n')`
-````
-]
+```{r out.extra='style="border: none;"'}
+knitr::include_url("files/awesome_document.txt")
+```
 
 ---
 # An example...
 
-<iframe src="files/example_rmd.html" width="1000" height="400" frameBorder="0" </iframe>
+```{r out.extra='style="border: none;"'}
+knitr::include_url("files/example_rmd.html")
+```
 ---
 
 class: inverse, center, middle
@@ -202,7 +201,9 @@ class: inverse, center, middle
 ---
 # Literate programming as asynchronus process...
 
-<iframe src="https://docs.google.com/document/d/1sFyg4PNIHZYAXn6UjsnQ9peHzbuzw9BjmlbMIs1W_tM/edit#" width="900" height="400" frameBorder="0" </iframe>
+```{r, out.extra='style="border: none;"'}
+knitr::include_url("https://docs.google.com/document/d/1sFyg4PNIHZYAXn6UjsnQ9peHzbuzw9BjmlbMIs1W_tM/edit#")
+```
 
 ---
 
@@ -343,8 +344,6 @@ knitr::include_url("files/awesome_document.txt")
 ```
 
 ]
-
---
 
 .pull-right[
 

@@ -107,7 +107,7 @@ knitr::include_graphics("img/phd_writing_meme.jpeg")
 ---
 class: section-slide, center, middle
 
-# Is there a solution? 😱
+# Is there a solution? `r emo::ji("scream")`
 ---
 
 class: inverse, center, middle

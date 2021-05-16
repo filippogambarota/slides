@@ -416,7 +416,7 @@ knitr::include_graphics("img/emily.jpeg")
 ---
 class: psicostat
 
-# A special thanks to Psicostat...
+# A special thanks to Psicostat members...
 
 Check our [**website**](https://psicostat.dpss.psy.unipd.it/index.html) `r emo::ji("smile")`
 

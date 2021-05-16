@@ -305,7 +305,7 @@ h1, h2, h3, h4 {
 }
 
 
-/************* splits ****************/
+/************* splits **************** from ninja/
 .nosplit>.column:first-of-type {width: 100%; height:100%; position: absolute; top: 0; left: 0; }
 .split-33>.column:first-of-type {width: 33.33333333333%; height:100%; position: absolute; top: 0; left: 0; }
 .split-33>.column:nth-of-type(2) {width: 66.66666666667%;height:100%;position: absolute;top: 0;right: 0;}

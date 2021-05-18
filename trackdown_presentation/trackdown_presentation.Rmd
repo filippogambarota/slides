@@ -349,6 +349,8 @@ knitr::include_url("files/awesome_document.txt")
 
 ]
 
+--
+
 .pull-right[
 
 ```{r out.extra='style="border: none;"'}
@@ -358,15 +360,48 @@ knitr::include_url("https://docs.google.com/document/d/1wGUY0SlDbt9zJZodJtTsjd33
 ]
 
 ---
+# Also the final output
+
+* With the `upload_file()` function is possible to also upload the output document as `.pdf` or `.html`
+
+.pull-left[
+
+```{r out.extra='style="border: none;"'}
+knitr::include_url("https://docs.google.com/document/d/1wGUY0SlDbt9zJZodJtTsjd338Aats8n_4nP1F8gCAac/edit")
+```
+
+]
+
+.pull-right[
+
+```{r out.extra='style="border: none;"'}
+knitr::include_url("http://filippogambarota.github.io/filippogambarota_slides/trackdown_presentation/files/example_rmd.pdf")
+```
+
+]
+
+---
 class: inverse, center, middle
 
-# Other relevant features?
+# Other advantages of the plain-text + Google Docs approach
 ---
 
-# Other relevant features?
+# Other advantages of the plain-text + Google Docs approach
 
-* .red[**Hide code chunks**] in order to focus the collaboration on text
-* .red[**Upload also the compiled version**] in order to see figures and tables
+--
+
+* Collaboration with .red[**colleagues with a heterogeneous background**] while keeping all advantages of a **knitr** based document
+
+--
+
+<br/>
+
+* .red[**Spell checking**] using standard tools available online (not completely possible in RStudio)
+
+<br/>
+
+* All amazing .red[**collaboration tools available in Google Docs**] (comments, assignments, history, auto-saving, etc.)
+
 
 ---
 # Check our repo on Github...

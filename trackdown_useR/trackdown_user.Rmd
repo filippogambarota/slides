@@ -22,7 +22,20 @@ params:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(echo = F, fig.align = "center")
+knitr::opts_chunk$set(echo = F, 
+                      fig.align = "center")
+
+# Functions
+
+make_text <- function(text, size){
+    out <- sprintf("<p style='font-size:%spx'>%s</p>", size, as.character(text))
+    return(noquote(out))
+}
+
+make_href <- function(text, link){
+    out <- sprintf("<a href='%s'> %s </a>", link, text)
+    return(noquote(out))
+}
 ```
 
 class: title-slide
@@ -225,32 +238,47 @@ class: split-five, fullscreen
 
 # The developers 😎
 
+```{r, include = FALSE, echo=FALSE}
+
+# Creating names and affiliations
+
+devs <- c("Filippo Gambarota", "Claudio Zandonella Callegher", "Janosch Linkersdörfer", "Mathew Ling", "Emily Kothe")
+emails <- paste0("mailto:", c("filippo.gambarota@phd.unipd.it", "claudiozandonella@gmail.it", "jlinkersdoerfer@ucsd.edu", "m.ling@deakin.edu.au", "emily.kothe@deakin.edu.au"))
+affiliation<- c("University of Padova", "University of Padova", "University of California", "Deakin University", "Deakin University")
+
+people <- mapply(function(devs, emails, affiliation) {
+    paste(make_href(devs, emails), "</br>", make_text(affiliation, 10))
+}, devs, emails, affiliation, SIMPLIFY = FALSE)
+
+```
+
+
 .column[
-```{r, out.width="70%", fig.cap="<a href='mailto:filippo.gambarota@phd.unipd.it'>Filippo Gambarota</a> <br/> <br/> University of Padova"}
+```{r, out.width="70%", fig.cap=people[[1]]}
 knitr::include_graphics("img/filippo.jpg")
 ```
 ]
 
 .column[
-```{r, out.width="70%", fig.cap="<a href='mailto:claudiozandonella@gmail.it'>Claudio Zandonella <br/> Callegher</a> <br/> <br/> University of Padova"}
+```{r, out.width="70%", fig.cap=people[[2]]}
 knitr::include_graphics("img/claudio.jpeg")
 ```
 ]
 
 .column[
-```{r, out.width="70%", fig.cap="<a href='mailto:jlinkersdoerfer@ucsd.edu'>Janosch Linkersdörfer</a> <br/> <br/> University of California"}
+```{r, out.width="70%", fig.cap=people[[3]]}
 knitr::include_graphics("img/janosch.jpg")
 ```
 ]
 
 .column[
-```{r, out.width="70%", fig.cap="<a href='mailto:m.ling@deakin.edu.au'>Mathew Ling</a> <br/> <br/> Deakin University"}
+```{r, out.width="70%", fig.cap=people[[4]]}
 knitr::include_graphics("img/mathew.jpg")
 ```
 ]
 
 .column[
-```{r, out.width="70%", fig.cap="<a href='mailto:emily.kothe@deakin.edu.au'>Emily Kothe</a> <br/> <br/> Deakin University"}
+```{r, out.width="70%", fig.cap=people[[5]]}
 knitr::include_graphics("img/emily.jpeg")
 ```
 ]

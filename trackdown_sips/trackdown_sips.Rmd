@@ -6,7 +6,7 @@ institute: ""
 date: ""
 output:
   xaringan::moon_reader:
-    css: ["resources/xaringan_filippo.css", "default-fonts"]
+    css: ["resources/xaringan_filippo_sips.css", "default-fonts"]
     includes:
       after_body: "resources/afterInit.html"
     lib_dir: libs
@@ -44,9 +44,13 @@ class: title-slide
 knitr::include_graphics("img/trackdown_logo.png")
 ```
 
-# A simple framework for collaboration <br/> in a literate programming workflow
+```{r, out.width="30%"}
+knitr::include_graphics("img/sips_logo.png")
+```
 
-### @useR 2021
+# An R package for collaborative writing and editing
+
+### @SIPS 2021
 
 ---
 

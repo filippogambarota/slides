@@ -228,9 +228,9 @@ class: fullscreen
 
 ---
 
-# Most relevant featues
+# Most relevant features
 
-* Support for both `.Rmd` and `Rnw` files
+* Support for both `.Rmd` and `.Rnw` files
 
 </br>
 

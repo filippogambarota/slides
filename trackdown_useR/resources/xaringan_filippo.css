@@ -4,6 +4,13 @@ h1, h2, h3, h4 {
     color: #1464b4;
 }
 
+.Large { font-size: 144% }
+.large { font-size: 120% }
+.small { font-size: 90% }
+.footnotesize { font-size: 20% }
+.scriptsize { font-size: 70% }
+.tiny { font-size: 60% }
+
 a, a > code {
   color: rgb(249, 38, 114);
   text-decoration: none;
@@ -135,14 +142,15 @@ th, td { padding: 5px; }
   font-size: 50px;
 }
 
-/*  SECTION SLIDE  */
+/*  FINAL SLIDE  */
 
 .final-slide {
   background-color: #272822;
+  background-image: none;
   color: #d6d6d6;
-  text-shadow: 0 0 20px #333;
 }
 
+/*  EXTRA  */
 
 img, video, iframe {
   max-width: 100%;
@@ -151,8 +159,6 @@ blockquote {
   border-left: solid 5px lightgray;
   padding-left: 1em;
 }
-
-
 
 .remark-slide-number {
     display: none;

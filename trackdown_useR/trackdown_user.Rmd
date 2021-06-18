@@ -44,7 +44,7 @@ class: title-slide
 knitr::include_graphics("img/trackdown_logo.png")
 ```
 
-# A simple framework for collaboration in a literate programming workflow
+# A simple framework for collaboration <br/> in a literate programming workflow
 
 ### @useR 2021
 
@@ -89,7 +89,7 @@ knitr::include_url("https://giphy.com/embed/6ZaYjk1qC1Tby")
 
 * We have to collaborate both with ne**R**d people and the average Microsoft Word user `r emo::ji("scream")`
 
-* We have to collaborate on **plain text files** (`.Rmd` or `.rnw`) so before the compilation stage
+* We have to collaborate on **plain text files** (`.Rmd` or `.Rnw`) so before the compilation stage
 
 * We **lack of a collaborative environment** for text-based documents such as the revision mode of Microsoft Word or Google Docs
 
@@ -145,18 +145,22 @@ class: chapter-slide, center, middle
 
 --
 
-* Allow us to easily collaborate in the same way as a standard Word file
+* Allow us to easily **collaborate in the same way as a standard Word file**
+
+<br/>
 
 --
-* Is user friendly for the average user and powerful for experts
+* Is **user friendly** for the average user and **powerful** for experts
+
+<br/>
 
 --
-* Keep all powerful aspects of a literate programming framework, without any compromises
+* **Keep all amazing features of a literate programming framework**, without any compromises
 
 --
 
 ```{r, out.extra='style="border: none;"'}
-knitr::include_url("https://giphy.com/embed/EldfH1VJdbrwY")
+knitr::include_url("https://giphy.com/embed/EldfH1VJdbrwY", height = 200)
 ```
 
 ---
@@ -223,11 +227,25 @@ class: fullscreen
 </video>
 
 ---
+
+# Most relevant featues
+
+* Support for both `.Rmd` and `Rnw` files
+
+</br>
+
+* Powerful system to **hide/restore and backup code chunks** during between the `upload` and `download` process
+
+</br>
+
+* Perfectly integrated with a GIT workflow
+
+---
 class: fullscreen
 
-# Check our repo on Github...
+# Check the full documentation `r emo::ji("smile")`
 
-[**ekothe/trackdown**](https://github.com/ekothe/trackdown/tree/develop) `r icons::fontawesome("github")`
+[**ekothe/trackdown**](https://ekothe.github.io/trackdown/) `r icons::fontawesome("github")`
 
 ```{r out.extra='style="border: none;"'}
 knitr::include_url("https://ekothe.github.io/trackdown")
@@ -292,4 +310,21 @@ Check our [**website**](https://psicostat.dpss.psy.unipd.it/index.html) `r emo::
 
 ```{r out.extra='style="border: none;"'}
 knitr::include_url("https://psicostat.dpss.psy.unipd.it/index.html")
+```
+
+---
+class: final-slide, center, middle
+
+<br/>
+<br/>
+
+### .large[[filippo.gambarota@phd.unipd.it](mailto:filippo.gambarota@phd.unipd.it)]
+
+<br/>
+<br/>
+
+.tiny[Slides made with the [Xaringan](https://github.com/yihui/xaringan) package by [Yihui Xie](https://yihui.name/)]
+
+```{r echo=FALSE, out.width="20%"}
+knitr::include_graphics("img/final_logo.svg")
 ```

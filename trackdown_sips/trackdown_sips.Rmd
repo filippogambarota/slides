@@ -44,13 +44,52 @@ class: title-slide
 knitr::include_graphics("img/trackdown_logo.png")
 ```
 
-```{r, out.width="30%"}
+.logo-conf[
+```{r, out.width="50%"}
 knitr::include_graphics("img/sips_logo.png")
 ```
+]
 
 # An R package for collaborative writing and editing
 
 ### @SIPS 2021
+
+---
+class: chapter-slide, center, middle
+
+# Let's start from a normal academic day...
+
+---
+
+# Writing
+
+.pull-left[
+
+```{r, out.extra='style="border: none;"'}
+knitr::include_url("https://giphy.com/embed/LGWYfM9Dd7Kuc")
+```
+
+]
+
+--
+
+.pull-right[
+
+* Writing bibliography
+
+<br/>
+
+* Copy and paste statistics and results `r emo::ji("scream")`
+
+<br/>
+
+* Tables and figures `r emo::ji("scream")`
+
+<br/>
+
+* Collaboration
+
+]
 
 ---
 
@@ -59,6 +98,7 @@ class: chapter-slide, center, middle
 # Literate programming in R
 
 ---
+
 class: fullscreen
 
 ```{r, out.extra='style="border: none;"'}
@@ -91,7 +131,7 @@ knitr::include_url("https://giphy.com/embed/6ZaYjk1qC1Tby")
 
 .pull-left[
 
-* We have to collaborate both with ne**R**d people and the average Microsoft Word user `r emo::ji("scream")`
+* We have to collaborate with people with different backgrounds
 
 * We have to collaborate on **plain text files** (`.Rmd` or `.Rnw`) so before the compilation stage
 
@@ -229,20 +269,6 @@ class: fullscreen
 <video width="100%" height="100%" controls id="my_video">
     <source src="video/out/download_file_cut.mp4" type="video/mp4">
 </video>
-
----
-
-# Most relevant features
-
-* Support for both `.Rmd` and `.Rnw` files
-
-</br>
-
-* Powerful system to **hide/restore and backup code chunks** between the `upload` and `download` process
-
-</br>
-
-* Perfectly integrated with a GIT workflow
 
 ---
 class: fullscreen

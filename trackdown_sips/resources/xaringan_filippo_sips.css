@@ -1,7 +1,7 @@
 /*  GENERAL SLIDES  */
 
 h1, h2, h3, h4 {
-    color: #1464b4;
+    color: #117A65;
 }
 
 .Large { font-size: 144% }
@@ -36,8 +36,8 @@ p.caption {
 }
 
 .remark-slide-content {
-    font-size: 23px;
-    background-image: url("img/sips_logo.png"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%) ;
+  font-size: 23px;
+  background-image: url("img/sips_logo.png");
   background-position: 20px 590px , center;
   background-size: 85px , 100% 100%, cover ;
 }
@@ -132,7 +132,7 @@ th, td { padding: 5px; }
 /*  SECTION SLIDE  */
 
 .chapter-slide {
-  background-color: #1464b4;
+  background-color: #117A65;
   background-image: none;
 }
 
@@ -229,8 +229,8 @@ blockquote {
   width: 100%;
 }
 
-.bottom-right_image {
+.logo-conf {
   position: absolute;
-  right: 0px;
-  bottom: 0px;
+  right: 5px;
+  bottom: 5px;
 }

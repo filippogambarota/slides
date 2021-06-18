@@ -180,33 +180,20 @@ Thanks to Andy Field https://stackoverflow.com/questions/32823436/auto-full-scre
 -->
 
 <video width="100%" height="100%" controls id="my_video">
-    <source src="video/speed/upload_and_googledrive.mp4" type="video/mp4">
+    <source src="video/out/upload_and_googledrive_cut.mp4" type="video/mp4">
 </video>
 
 ---
 
 class: chapter-slide, center, middle
 
-# Sharing on Google Docs
+# Awesome collaboration on Google Docs
 
 ---
 class: fullscreen
 
 <video width="100%" height="100%" controls id="my_video">
-    <source src="video/speed/share.mp4" type="video/mp4">
-</video>
-
----
-
-class: chapter-slide, center, middle
-
-# Starting the review process
-
----
-class: fullscreen
-
-<video width="100%" height="100%" controls id="my_video">
-    <source src="video/speed/edit-1.mp4" type="video/mp4">
+    <source src="video/out/review_process_cut.mp4" type="video/mp4">
 </video>
 
 ---
@@ -219,7 +206,7 @@ class: chapter-slide, center, middle
 class: fullscreen
 
 <video width="100%" height="100%" controls id="my_video">
-    <source src="video/speed/download_file.mp4" type="video/mp4">
+    <source src="video/out/download_file_cut.mp4" type="video/mp4">
 </video>
 
 ---
@@ -278,5 +265,3 @@ Check our [**website**](https://psicostat.dpss.psy.unipd.it/index.html) `r emo::
 ```{r out.extra='style="border: none;"'}
 knitr::include_url("https://psicostat.dpss.psy.unipd.it/index.html")
 ```
-
----

@@ -4,6 +4,19 @@ h1, h2, h3, h4 {
     color: #1464b4;
 }
 
+a, a > code {
+  color: rgb(249, 38, 114);
+  text-decoration: none;
+}
+
+p.caption {
+  font-size: 0.6em;
+}
+
+.small{
+  font-size: 1px;
+}
+
 .footnote {
   /*position: absolute;
   bottom: 3em;

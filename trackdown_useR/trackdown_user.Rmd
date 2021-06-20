@@ -6,6 +6,7 @@ institute: ""
 date: ""
 output:
   xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
     css: ["resources/xaringan_filippo.css", "default-fonts"]
     includes:
       after_body: "resources/afterInit.html"

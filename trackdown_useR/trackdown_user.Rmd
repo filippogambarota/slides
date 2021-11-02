@@ -246,10 +246,10 @@ class: fullscreen
 
 # Check the full documentation `r emo::ji("smile")`
 
-[**ekothe/trackdown**](https://ekothe.github.io/trackdown/) `r icons::fontawesome("github")`
+[**ClaudioZandonella/trackdown**](https://github.com/ClaudioZandonella/trackdown) `r icons::fontawesome("github")`
 
 ```{r out.extra='style="border: none;"'}
-knitr::include_url("https://ekothe.github.io/trackdown")
+knitr::include_url("https://github.com/ClaudioZandonella/trackdown")
 ```
 
 ---

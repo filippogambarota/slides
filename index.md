@@ -9,11 +9,11 @@ This repository is a collections of my slides and talks. All presentations are w
 * Introduction to the Tidyverse - [Psicostat](https://ip146179.psy.unipd.it/psicostat/web/index.html) 11/12/2020 - [HTML](tidyverse_presentation/tidyverse_presentation.html) - [PDF](tidyverse_presentation/tidyverse_presentation.pdf)
 * Creating an Academic Website with Hugo - [HTML](https://filippogambarota.github.io/hugo_tutorial/#1) - [Repository](https://github.com/filippogambarota/hugo_tutorial)
 * Bibliographic Research Tips - [HTML](https://filippogambarota.github.io/bibresearch/#1)
-* Tips on Power and Sensitivity analysis - [HTML](socialneu_lab/lab_meeting_sensitivity/lab_meeting_sensitivity.html)
 
 ## Statistics
 
 * Introduction to Meta-analysis - [HTML](meta_analysis_presentation/meta_analysis_presentation.html) - [PDF](meta_analysis_presentation/meta_analysis_presentation.pdf)
+* Tips on Power and Sensitivity analysis - [HTML](socialneu_lab/lab_meeting_sensitivity/lab_meeting_sensitivity.html)
 
 ## Consciousness
 
@@ -28,8 +28,8 @@ This repository is a collections of my slides and talks. All presentations are w
 
 ## Trackdown Package
 
-* trackdown package - TASK4-2021 - [Slides](trackdown_presentation/trackdown_presentation.html)
+* trackdown package - TASK4-2021 - [Slides](trackdown/trackdown_task4/trackdown_task4.html)
 
-* trackdown package - useR-2021 - [Slides](trackdown_useR/trackdown_user.html) - [Talk](trackdown_user/talk_user.mp4)
+* trackdown package - useR-2021 - [Slides](trackdown/trackdown_useR/trackdown_user.html) - [Talk](trackdown/trackdown_useR/talk_user.mp4)
 
-* trackdown package - SIPS-2021 - [Slides](trackdown_sips/trackdown_sips.html) - [Talk](trackdown_sips/talk_sips.mp4)
+* trackdown package - SIPS-2021 - [Slides](trackdown/trackdown_sips/trackdown_sips.html) - [Talk](trackdown/trackdown_sips/talk_sips.mp4)

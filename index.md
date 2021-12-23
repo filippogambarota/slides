@@ -37,3 +37,7 @@ This repository is a collections of my slides and talks. All presentations are w
 * trackdown package - useR-2021 - [Slides](trackdown/trackdown_useR/trackdown_user.html) - [Talk](trackdown/trackdown_useR/talk_user.mp4)
 
 * trackdown package - SIPS-2021 - [Slides](trackdown/trackdown_sips/trackdown_sips.html) - [Talk](trackdown/trackdown_sips/talk_sips.mp4)
+
+# Updates
+
+<a class="twitter-timeline" href="https://twitter.com/fgambarota?ref_src=twsrc%5Etfw">Tweets by fgambarota</a> <script async src="https://platform.twitter.com/width = "400" height = "600" widgets.js" charset="utf-8"></script>

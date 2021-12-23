@@ -207,7 +207,7 @@ class: inverse, center, middle
 # Literate programming as asynchronus process...
 
 ```{r, out.extra='style="border: none;"'}
-knitr::include_url("https://docs.google.com/document/d/1sFyg4PNIHZYAXn6UjsnQ9peHzbuzw9BjmlbMIs1W_tM/edit#")
+knitr::include_graphics("img/google_doc_1.png")
 ```
 
 ---
@@ -261,8 +261,9 @@ knitr::include_graphics("img/git_flow.svg")
 **Word-like approach**
 
 ```{r, out.extra='style="border: none;"'}
-knitr::include_url("https://docs.google.com/document/d/1sFyg4PNIHZYAXn6UjsnQ9peHzbuzw9BjmlbMIs1W_tM/edit#")
+knitr::include_graphics("img/google_doc_1.png")
 ```
+
 
 ]
 
@@ -314,7 +315,7 @@ class: inverse, center, middle
 
 # The trackdown package
 
-```{r}
+```{r, out.width="80%"}
 knitr::include_graphics("img/trackdown_package.svg")
 ```
 
@@ -367,8 +368,8 @@ knitr::include_url("https://docs.google.com/document/d/1wGUY0SlDbt9zJZodJtTsjd33
 
 .pull-left[
 
-```{r out.extra='style="border: none;"'}
-knitr::include_url("https://docs.google.com/document/d/1wGUY0SlDbt9zJZodJtTsjd338Aats8n_4nP1F8gCAac/edit")
+```{r}
+knitr::include_graphics("img/trackdown_example.png")
 ```
 
 ]
@@ -409,10 +410,10 @@ class: inverse, center, middle
 ---
 # Check our repo on Github...
 
-[**ekothe/trackdown**](https://github.com/ekothe/trackdown/tree/develop) `r icons::fontawesome("github")`
+[**ClaudioZandonella/trackdown**](https://github.com/ClaudioZandonella/trackdown) `r icons::fontawesome("github")`
 
 ```{r out.extra='style="border: none;"'}
-knitr::include_url("https://ekothe.github.io/trackdown")
+knitr::include_url("https://github.com/ClaudioZandonella/trackdown")
 ```
 
 

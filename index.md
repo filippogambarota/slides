@@ -9,6 +9,7 @@ This repository is a collections of my slides and talks. All presentations are w
 * Introduction to the Tidyverse - [Psicostat](https://ip146179.psy.unipd.it/psicostat/web/index.html) 11/12/2020 - [HTML](tidyverse_presentation/tidyverse_presentation.html) - [PDF](tidyverse_presentation/tidyverse_presentation.pdf)
 * Creating an Academic Website with Hugo - [HTML](https://filippogambarota.github.io/hugo_tutorial/#1) - [Repository](https://github.com/filippogambarota/hugo_tutorial)
 * Bibliographic Research Tips - [HTML](https://filippogambarota.github.io/bibresearch/#1)
+* Tips on Power and Sensitivity analysis - [HTML](socialneu_lab/lab_meeting_sensitivity/lab_meeting_sensitivity.html)
 
 ## Statistics
 

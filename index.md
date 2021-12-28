@@ -24,7 +24,11 @@ This repository is a collections of my slides and talks. All presentations are w
 
 * Visual Working Memory and Face Processing - [Cognitive and Functional Bases of Intersubjectivity - University of Padova] - [Slides](https://docs.google.com/presentation/d/1qVY2WTcfNNQgXm92dcw1jd8wPkSU4N267HcSWYNEVB0/edit#slide=id.gc96481fd19_0_343)
 
-# Conferences
+# Talks
+
+## Unconscious Visual Working Memory: a critical review and Bayesian meta-analysis
+
+- 3 minute talk - [Talk](https://youtu.be/saINoKK5XLY)
 
 ## Trackdown Package
 

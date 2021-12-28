@@ -1,6 +1,19 @@
-# Filippo Gambarota's Materials
-
 This repository is a collections of my slides and talks. All presentations are written in `RMarkdown` using and rendered in `html/pdf` or with `Google Slides`
+
+# Index
+
+<!-- MarkdownTOC -->
+
+- [Slides](#slides)
+	- [Methodological Slides](#methodological-slides)
+	- [Statistics](#statistics)
+	- [Consciousness](#consciousness)
+	- [Working Memory](#working-memory)
+- [Talks](#talks)
+	- [Unconscious Visual Working Memory: a critical review and Bayesian meta-analysis](#unconscious-visual-working-memory-a-critical-review-and-bayesian-meta-analysis)
+	- [Trackdown Package](#trackdown-package)
+
+<!-- /MarkdownTOC -->
 
 # Slides
 

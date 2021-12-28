@@ -1,2 +1,4 @@
 theme: jekyll-theme-cayman
-title: Filippo Gambarota Slides
+title: Slides
+plugins:
+  - jekyll-seo-tag

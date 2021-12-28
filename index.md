@@ -1,6 +1,6 @@
-# Repository
+# Filippo Gambarota's Materials
 
-This repository is a collections of my slides and talks. All presentations are written in `RMarkdown` using and rendered in `html` or in `pdf`.
+This repository is a collections of my slides and talks. All presentations are written in `RMarkdown` using and rendered in `html/pdf` or with `Google Slides`
 
 # Slides
 

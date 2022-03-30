@@ -10,11 +10,15 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: true
+    self_contained: true
+params:
+  pdf_button: TRUE
 ---
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(echo = FALSE)
+filename = stringr::str_replace(knitr::current_input(), ".Rmd", "")
 ```
 
 # Ricerca Bibliografica
@@ -147,7 +151,7 @@ knitr::include_graphics("img/proxy-server.svg")
 
 Oltre al servizio proxy il sistema bibliotecario di Padova offre diverse risorse e documenti come tutorial per accedere ai vari servizi
 
-Ci sono nel [sito delle risorse elettroniche](http://bibliotecadigitale.cab.unipd.it/resourcefacetednavigation/#c9=S&b_start=0&c5=PSICOLOGIA) i vari link alle banche dati come **Scopus** e **Psychinfo**.
+Ci sono nel portale [Galileo Discovery](http://bibliotecadigitale.cab.unipd.it/resourcefacetednavigation/#c9=S&b_start=0&c5=PSICOLOGIA) i vari link alle banche dati come **Scopus** e **Psychinfo**.
 
  Questi link che trovate sul sito sono particolari perchè permettono di accedere al servizio di banca dati (se avete attivato il proxy)
 
@@ -308,7 +312,7 @@ Ci sono diversi [stili citazionali](https://en.wikipedia.org/wiki/Citation) spes
 
 * Per esempio lo stile **APA** è quello spesso usato in ambito psicologico
 
-```{r,fig.align='center'}
+```{r,fig.align='center', out.width="20%"}
 knitr::include_graphics("img/apa.jpg")
 ```
 
@@ -578,6 +582,11 @@ class: title-slide-final, middle, center, inverse
 .social[`r icons::fontawesome$brands$github` [filippogambarota](https://github.com/filippogambarota)]
 <br/>
 <br/>
+
+```{r, eval=params$pdf_button, results='asis', echo=FALSE}
+glue::glue("[Download PDF slides]({file}.pdf)", file = filename)
+```
+
 
 
 

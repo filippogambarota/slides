@@ -1,17 +1,21 @@
 ---
-title: "**Bibliographic Research Tips**"
+title: 'Bibliographic Research Tips </br></br>'
 author: "Filippo Gambarota"
-date: "</br> University of Padova </br> </br> `r Sys.Date()`"
+date: "University of Padova"
 output:
   xaringan::moon_reader:
     lib_dir: libs
     css: ["css/bibresearch.css", "css/bibresearch-fonts.css"]
     nature:
-      beforeInit: "http://www.jvcasillas.com/ru_xaringan/js/ru_xaringan.js"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: true
 ---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+```
 
 # Ricerca Bibliografica
 
@@ -20,13 +24,13 @@ La ricerca bibliografica consiste nel **ricercare informazioni** contenute in ar
 ]
 
 .pull-down[
-```{r, echo=FALSE, out.height=300, fig.align='center'}
+```{r, out.height=300, fig.align='center'}
 knitr::include_graphics("img/library.jpg")
 ```
 ]
 
 ---
-class: title-slide-section-grey, center, middle
+class: section, center, middle
 
 # Principali Tipologie di Pubblicazioni
 
@@ -34,25 +38,26 @@ class: title-slide-section-grey, center, middle
 
 # Rivista Scientifica
 
-```{r, echo=FALSE, out.height=200, fig.align='center'}
+```{r out.height=200, fig.align='center'}
 knitr::include_graphics("img/nature.svg")
 ```
-```{r, echo=FALSE, out.width=500, fig.align='center', out.height=220}
+
+```{r, out.width=500, fig.align='center', out.height=220}
 knitr::include_graphics("img/science.jpg")
 ```
 ---
 
 # Libri
 
-### In particolare gli **handbooks**
+ In particolare gli **handbooks**
 
 .pull-left[
-```{r, echo=FALSE, out.height= 350, out.width= 280}
+```{r, out.height= 350, out.width= 280}
 knitr::include_graphics("img/handbook.jpg")
 ```
 ]
 .pull-right[
-```{r, echo=FALSE, out.height= 350, out.width= 280}
+```{r, out.height= 350, out.width= 280}
 knitr::include_graphics("img/visualmemory.jpg")
 ```
 ]
@@ -67,37 +72,39 @@ knitr::include_graphics("img/visualmemory.jpg")
 
 [Jove](https://www.jove.com/)
 
-```{r, echo=FALSE, out.height=200, fig.align='center'}
+```{r, fig.align='center', out.width=300}
 knitr::include_graphics("img/jove.jpg")
 ```
 
 ---
-class: title-slide-section-grey, center, middle
+class: section, center, middle
 
 # Dove trovare queste risorse?
 
 ---
 
-# I database bibliografici
+# Come funziona la pubblicazione scientifica?
 
-* ### La letteratura scientifica, sopratutto in forma di articoli e libri, viene **organizzata** in databases 
-* ### In questi database sono presenti le varie **riviste scientifiche**
-
-```{r, echo=FALSE, out.height=100, out.width=200, fig.align='center'}
-knitr::include_graphics(c("img/webofscience.png", "img/scopus.jpg", "img/psyinfo.png"))
+```{r}
+knitr::include_graphics("img/scientific-pub.svg")
 ```
 
 ---
 
 # I database bibliografici
 
-* ### I ricercatori pubblicano un articolo su una **rivista**
-* ### Questa rivista è **indicizzata** in una certa banca dati
-* ### Avendo **accesso alla banca dati** si ottiene l'accesso a tutte le riviste indicizzate
-* ### Esiste un **abbonamento** alle riviste (acquistato dall'università) ed anche alle banche dati
+I database bibliografici sono dei motori di ricerca (simili a Google) ma che indicizzano solo pubblicazioni scientifiche. Rispetto a google hanno delle funzioni avanzate tipo:
+
+- combinare parole chiave (vedremo dopo)
+- filtrare per variabili sperimentali (età dei soggetti, strumenti utilizzati, etc.)
+- filtrare per tipo di pubblicazione, autore, etc.
+
+```{r, out.width="90%"}
+knitr::include_graphics("img/database.png")
+```
 
 ---
-class: title-slide-section-grey, center, middle
+class: section, center, middle
 
 # Come accedere a queste risorse?
 
@@ -105,12 +112,12 @@ class: title-slide-section-grey, center, middle
 
 # Problematiche di accesso
 
-* ### Le banche dati possono essere liberamente accessibili (non proprio tutte) ma spesso gli **articoli sono a pagamento**
-* ### Noi non abbiamo gli abbonamenti alle riviste o alle banche dati quindi:
+* Le banche dati possono essere liberamente accessibili (non proprio tutte) ma spesso gli **articoli sono a pagamento**
+* Noi non abbiamo gli abbonamenti alle riviste o alle banche dati quindi:
 
 .pull-left[
 
-```{r, echo=FALSE, out.height=250, out.width=300}
+```{r, out.height=250, out.width=300}
 knitr::include_graphics("img/payarticle.png")
 ```
 
@@ -118,7 +125,7 @@ knitr::include_graphics("img/payarticle.png")
 
 .pull-right[
 
-```{r, echo=FALSE, fig.align='center'}
+```{r, fig.align='center'}
 knitr::include_graphics("img/payarticle2.png")
 ```
 
@@ -128,24 +135,26 @@ knitr::include_graphics("img/payarticle2.png")
 
 # Servizio Proxy Unipd
 
-### Permette di accedere da casa attraverso i **server dell'università** sfruttando tutti gli accessi e abbonamenti 
-### Installazione molto semplice tramite [Auth-Proxy](https://bibliotecadigitale.cab.unipd.it/bd/auth-proxy)
-### E' disponibile anche un'**estensione per Chrome/Firefox** per accendere e spegnere il servizio di proxy
+Installazione molto semplice tramite [Auth-Proxy](https://bibliotecadigitale.cab.unipd.it/bd/auth-proxy). E' disponibile anche un'**estensione per Chrome/Firefox** per accendere e spegnere il servizio di proxy
+
+```{r}
+knitr::include_graphics("img/proxy-server.svg")
+```
 
 ---
 
 # Link Speciali delle Banche Dati
 
-### Oltre al servizio proxy il sistema bibliotecario di Padova offre diverse risorse e documenti come tutorial per accedere ai vari servizi
+Oltre al servizio proxy il sistema bibliotecario di Padova offre diverse risorse e documenti come tutorial per accedere ai vari servizi
 
-### Ci sono nel [sito delle risorse elettroniche](http://bibliotecadigitale.cab.unipd.it/resourcefacetednavigation/#c9=S&b_start=0&c5=PSICOLOGIA) i vari link alle banche dati come **Scopus** e **Psychinfo**.
+Ci sono nel [sito delle risorse elettroniche](http://bibliotecadigitale.cab.unipd.it/resourcefacetednavigation/#c9=S&b_start=0&c5=PSICOLOGIA) i vari link alle banche dati come **Scopus** e **Psychinfo**.
 
-### Questi link che trovate sul sito sono particolari perchè permettono di accedere al servizio di banca dati (se avete attivato il proxy)
+ Questi link che trovate sul sito sono particolari perchè permettono di accedere al servizio di banca dati (se avete attivato il proxy)
 
 * **TIP** aggiungere come preferito il link che trovate nel sito, in modo da accedere senza tornare nel sito della biblioteca
 
 ---
-class: title-slide-section-grey, center, middle
+class: section, center, middle
 
 # I primi problemi 😭
 
@@ -165,7 +174,7 @@ Può succedere che nonostante il proxy non si riesca ad accedere agli articoli
 
 4. Chiedere agli autori
 
-### Danger!! ⚠️⚠️⚠️
+ Danger!! ⚠️⚠️⚠️
 
 * SciHub and LibGen (veeeery illegal ☠️)
 
@@ -173,7 +182,7 @@ Può succedere che nonostante il proxy non si riesca ad accedere agli articoli
 
 # Google Scholar
 
-```{r, echo=FALSE, fig.align='center'}
+```{r,fig.align='center'}
 knitr::include_graphics("img/scholar.png")
 ```
 
@@ -187,7 +196,7 @@ knitr::include_graphics("img/scholar.png")
 
 # Google Scholar
 
-```{r, echo=FALSE, fig.align='center'}
+```{r,fig.align='center'}
 knitr::include_graphics("img/scholar.png")
 ```
 
@@ -199,29 +208,29 @@ knitr::include_graphics("img/scholar.png")
 
 # ResearchGate
 
-```{r, echo=FALSE, fig.align='center'}
+```{r,fig.align='center'}
 knitr::include_graphics("img/researchgate.png")
 ```
 
 E' un **social network** per accademici dove si può seguire e interagire la ricerca di altre persone
 
-* Gli autori spesso **caricano i propri articoli** o si può facilmente **chiedere direttamente**
+Gli autori spesso **caricano i propri articoli** o si può facilmente **chiedere direttamente**
 
 ---
 
 # SciHub
 
 
-```{r, echo=FALSE, fig.align='center'}
+```{r,fig.align='center'}
 knitr::include_graphics("img/scihub.png")
 ```
 
 * E' un servizio molto controverso ed in parte illegale (lo usano tutti) che permette di accedere a praticamente tutti gli articoli senza proxy ne abbonamenti vari
 
-* Copiare e incollare il **link** dell'articolo o il **DOI** (dopo vediamo cosa sia) e avremo l'accesso!
+* Copiare e incollare il **link** dell'articolo o il **DOI** e avremo l'accesso!
 
 ---
-class: title-slide-section-grey, center, middle
+class: section, center, middle
 
 # I Metadati Bibliografici
 
@@ -247,7 +256,7 @@ I metadati sono quelle informazioni che permetto di **catagolare**, **risalire**
 
 .pull-left[
 
-```{r, echo=FALSE, fig.align='left'}
+```{r,fig.align='left'}
 knitr::include_graphics("img/paper.png")
 ```
 ]
@@ -255,12 +264,12 @@ knitr::include_graphics("img/paper.png")
 .pull-right[
 </br>
 </br>
-## Articolo + Metadati
+#### Articolo + Metadati
 Vanno a formare il riferimento bibliografico
 ]
 
 ---
-class: title-slide-section-grey, center, middle
+class: section, center, middle
 
 # Citazioni
 
@@ -270,13 +279,13 @@ class: title-slide-section-grey, center, middle
 
 Le citazioni sono i **riferimenti** a specifiche fonti che vengono inseriti nel testo prodotto e che (dovrebbero) corrispondono alle **fonti selezionate e consultate**
 
-### Diverse tipologie
+#### Diverse tipologie
 
 .pull-left[
 
 Riferimento Numerico
 
-```{r, echo=FALSE, fig.align='left'}
+```{r,fig.align='left'}
 knitr::include_graphics("img/citfootnote.png")
 ```
 
@@ -286,7 +295,7 @@ knitr::include_graphics("img/citfootnote.png")
 
 Testo Completo
 
-```{r, echo=FALSE, fig.align='left'}
+```{r,fig.align='left'}
 knitr::include_graphics("img/cittext.png")
 ```
 ]
@@ -299,13 +308,13 @@ Ci sono diversi [stili citazionali](https://en.wikipedia.org/wiki/Citation) spes
 
 * Per esempio lo stile **APA** è quello spesso usato in ambito psicologico
 
-```{r, echo=FALSE, fig.align='center'}
+```{r,fig.align='center'}
 knitr::include_graphics("img/apa.jpg")
 ```
 
 ---
 
-class: title-slide-section-grey, center, middle
+class: section, center, middle
 
 # Come fare la ricerca bibliografica
 
@@ -313,41 +322,43 @@ class: title-slide-section-grey, center, middle
 
 # Elementi Importanti
 
-</br>
+1. Avere ben **chiaro l'argomento**
 
-* ### Avere ben **chiaro l'argomento**
+2. Definire le **parole chiave**
 
-* ### Scegliere il **Motore di Ricerca** (psychinfo, scopus, etc.)
+3. Scegliere il **Motore di Ricerca** (psychinfo, scopus, etc.)
 
-* ### Usare un **Software** di Gestione Bibliografica
+4. Usare un **Software** di Gestione Bibliografica
 
-* ### **Leggere**, **catalogare** ed **estrarre** informazioni
+5. **Leggere**, **catalogare** ed **estrarre** informazioni
 
-* ### Scrivere e quindi **Citare**
+    - partire da titolo e abstract
+    - eventualmente leggere il full-text se rilevante
+    - prendere note su quali articoli si sono letti, cosa c'è di importante e perchè
 
 ---
 
 # Definizione dell'argomento
 
-* ### I motori di ricerca funzionano a parole chiave e le informazioni più rilevanti sono su **Titolo**, **Abstract** e **Keywords**
+*  I motori di ricerca funzionano a parole chiave e le informazioni più rilevanti sono su **Titolo**, **Abstract** e **Keywords**
 
-* ### Cercare di **indentificare cosa interessa e cosa no** in modo da selezionare chiaramente gli articoli
+*  Cercare di **indentificare cosa interessa e cosa no** in modo da selezionare chiaramente gli articoli
 
-* ### Avere già una **scaletta** della tesi o dell'argomento generale è molto utile
+*  Avere già una **scaletta** della tesi o dell'argomento generale è molto utile
 
-  * Suddividere in **macro-argomenti** può essere utile sia per la ricerca che per la scrittura
+*  Suddividere in **macro-argomenti** può essere utile sia per la ricerca che per la scrittura
   
 ---
 
 # Keywords
 
-### Le parole chiave sono quelle che **definiscono il vostro argomento**
+ Le parole chiave sono quelle che **definiscono il vostro argomento**
 
-## Esempio:
+#### Esempio:
 
 **`La depressione in adolescenza`** 😱😱😱
 
-```{r, echo=FALSE, fig.align='center'}
+```{r,fig.align='center'}
 knitr::include_graphics("img/badsearch.png")
 ```
 
@@ -355,9 +366,9 @@ knitr::include_graphics("img/badsearch.png")
 
 # Keywords
 
-### Ovviamente argomenti troppo generici non possono essere gestiti
+ Ovviamente argomenti troppo generici non possono essere gestiti
 
-## Esempio 2:
+#### Esempio 2:
 
 **`Conseguenze Scolastiche della Depressione in Adolescenza`** 
 
@@ -371,7 +382,7 @@ knitr::include_graphics("img/badsearch.png")
 
 # Keywords - Switch to English
 
-### La ricerca in letteratura è solamente in Inglese, quindi è utile avere chiaro:
+ La ricerca in letteratura è solamente in Inglese, quindi è utile avere chiaro:
 
 * Il **termine inglese** della vostra keyword
 
@@ -379,7 +390,7 @@ knitr::include_graphics("img/badsearch.png")
 
 * Utilizzare un [Thesaurus](https://www.thesaurus.com/) per sinonimi
 
-## Esempio, risultati scolastici:
+#### Esempio, risultati scolastici:
 
 <s> scholastic results </s>
 
@@ -389,8 +400,7 @@ knitr::include_graphics("img/badsearch.png")
 
 # Boolean Operators
 
-
-```{r, echo=FALSE, fig.align='center'}
+```{r,fig.align='center'}
 knitr::include_graphics("img/boolean.svg")
 ```
 
@@ -402,7 +412,7 @@ knitr::include_graphics("img/boolean.svg")
 
 </br>
 
-### Adolescence **AND** Depression **AND** Academic Achievement
+Adolescence **AND** Depression **AND** Academic Achievement
 
 ---
 
@@ -410,19 +420,19 @@ knitr::include_graphics("img/boolean.svg")
 
 Ci sono diversi e complessi modi di usare questi motori di ricerca tuttavia altre due funzioni generali sono fondamentali:
 
-### **Ricerca Esatta**
+ **Ricerca Esatta**
 
 Utilizzando le virgolette `""` si ricercano le parole nel modo in cui le abbiamo scritte. Ad esempio se cerchiamo:
 
 * **Attachment Theory**: troviamo tutte gli articoli dove compare sia il termine **attachment** che **theory**
 
-* "**Attachment Theory**": Articoli dove compare esattamente l'insieme di parole **attachment teory**
+* "**Attachment Theory**": Articoli dove compare esattamente l'insieme di parole **attachment theory**
 
 ---
 
 # Other Operators
 
-### **Wildcards**
+**Wildcards**
 
 Utilizzando le virgolette l'asterisco `*` possiamo omettere una parte di parola e quindi considerare tutte le possibili versioni
 
@@ -431,12 +441,7 @@ Utilizzando le virgolette l'asterisco `*` possiamo omettere una parte di parola 
 * Se cerchiamo **Child*** cerchermo anche tutti i possibili completamenti come: **children, childhood, childs** etc.
 
 ---
-class: title-slide-section-red, center, middle
-
-# Una prova pratica con Scopus e Psychinfo
-
----
-class: title-slide-section-grey, center, middle
+class: section, center, middle
 
 # Altre strategie e consigli per la ricerca
 
@@ -444,21 +449,20 @@ class: title-slide-section-grey, center, middle
 
 # Literature Reviews 😍😍😍
 
-### Oltre a queste *nerd stuffs* ci sono altre cose utili per ricercare al meglio:
+Quando dovete ceracre un argomento nuovo, cercate sempre una literature review o una meta-analisi:
 
-* Le **literature reviews** e le **systematic reviews** sono un ottimo punto di partenza e permettono di avere:
-
-  1. Una panoramica ragionata e recente (cercare sempre quelle più recenti) sull'argomento
-  
-  2. Sono una *porta di accesso* a molti articoli importanti
+- Permettono di avere una panoramica ragionata e recente (cercare sempre quelle più recenti) sull'argomento
+- Sono una *porta di accesso* a molti articoli importanti (ricerca backward)
+- Se meta-analisi vi forniscono una visione migliore di un certo argomento dal punto di vista statistico (molto meglio di qualsiasi singolo articolo)
+- La parte narrativa (Introduzione - Discussione) è utile per inquadrare l'argomento ed anche stutturare un eventuale introduzione discussione
   
 ---
 
 # Backward Research
 
-### La ricerca **backward** consiste nel ricercare attraverso la bibliografia di altri lavori
+La ricerca **backward** consiste nel ricercare attraverso la bibliografia di altri lavori
 
-```{r, echo=FALSE, fig.align='center', out.height= 350}
+```{r,fig.align='center', out.height= 350}
 knitr::include_graphics("img/backward.svg")
 ```
 
@@ -466,11 +470,7 @@ knitr::include_graphics("img/backward.svg")
 
 # Backward Research
 
-</br>
-</br>
-</br>
-
-* Trovare un lavoro **abbastanza recente** e di un autore conosciuto o rivista di livello
+* Trovare un lavoro **abbastanza recente** e di un autore conosciuto o rivista importante o una literature review/metanalisi
 
 * **Usare la bibliografia** per selezionare i paper più rilevanti
 
@@ -480,9 +480,9 @@ knitr::include_graphics("img/backward.svg")
 
 # Forward Research
 
-### La ricerca **forward** consiste nel selezionare gli articoli che hanno citato un determinato articolo di partenza
+La ricerca **forward** consiste nel selezionare gli articoli che hanno citato un determinato articolo di partenza
 
-```{r, echo=FALSE, fig.align='center', out.height= 350}
+```{r,fig.align='center', out.height= 350}
 knitr::include_graphics("img/forward.svg")
 ```
 
@@ -490,11 +490,22 @@ knitr::include_graphics("img/forward.svg")
 
 # Forward Research
 
-* Il punto di partenza può essere un **lavoro famoso o comunque rilevante**, comunque non troppo citato.
+* Il punto di partenza può essere un **lavoro famoso o comunque rilevante**, comunque non troppo citato (altrimenti troppo vaga).
 
 * Deve essere comunque **abbastanza specifico** altrimenti coloro che lo hanno citato possono appartenere ad ambiti troppo diversi
 
 * Google Scholar permette di **effettuare una nuova ricerca** sul pool di articoli che hanno citato un determinato lavoro
+
+---
+# Forward Research
+
+```{r}
+knitr::include_graphics("img/forward-scholar.png")
+```
+
+```{r}
+knitr::include_graphics("img/forward-scholar-within.png")
+```
 
 ---
 
@@ -504,88 +515,69 @@ knitr::include_graphics("img/forward.svg")
 
 * Alcuni motori di ricerca (Psychinfo) permettono di **filtrare i risultati** in modo molto raffinato e specifico
 
-```{r, echo=FALSE, fig.align='center', out.height= 350}
+```{r,fig.align='center', out.height= 350}
 knitr::include_graphics("img/psyfilter.svg")
 ```
 
 ---
-class: title-slide-section-grey, center, middle
+class: section, center, middle
 
 # Salvare e Gestire la Bibliografia
-
----
-class: center, middle
-
-## 1. Come salvare i risultati dei motori di ricerca
-
-## 2. Alcuni cenni di Mendeley
 
 ---
 
 # I metadati bibliografici
 
 * I dati bibliografici sono contenuti in file dal formato specifico come `.bib`, `.txt` oppure `.ris`.
-
 * Non sono altro che documenti di testo che determinati software leggono e automaticamente riconoscono tutte le informazioni
+* Generalmente i software di gestione bibliografica estraggono queste informazioni direttamente dal file PDF dell'articolo oppure dal sito della rivista usando alcune estensioni per browser
+* I database bibliografici permettono di esportare in massa tutti gli articoli che compongono una ricerca
 
-* Generalmente i software (come Mendeley) estraggono queste informazioni direttamente dal file PDF dell'articolo
-
-```{r, echo=FALSE, fig.align='center', out.height= 300}
+```{r, fig.align='center', out.height= 300}
 knitr::include_graphics("img/scholarbib.svg")
 ```
 
 ---
-class: title-slide-section-red, center, middle
+# Altre risorse
 
-# Vediamo un esempio con Psychinfo e Scopus
----
+- Il sito della [biblioteca Metelli](http://bibliotecapsicologia.cab.unipd.it/) fornisce tutte le informazioni su come raggiungere, interrogare e gestire i risultati delle banche dati
 
-# [Mendeley](https://www.mendeley.com)
+- Sempre la biblioteca organizza dei [**corsi gratuiti**](http://bibliotecapsicologia.cab.unipd.it/usa-la-biblioteca/contenuti/laboratori-formazione) per fare la ricerca bibliografica e gestire i risultati
 
-```{r, echo=FALSE, fig.align='center'}
-knitr::include_graphics("img/mendeley.png")
+```{r}
+knitr::include_graphics("img/metelli.png")
 ```
 
-* Mendeley è un software di gestione bibliografica che funziona come una libreria per i vostri articoli e libri
-
-* Permette di organizzare in **cartelle**, usare **tag** e creare automaticamente la bibliografia
-
-* L'estensione per browser vi permette di salvare direttamente gli articoli da internet
-
-* Importando un file PDF o un file bibliografico (e.g., `.ris`) Mendeley estrae automaticamente le informazioni
-
----
-class: title-slide-section-red, center, middle
-
-
-# Vediamo come funziona Mendeley
 ---
 
-class: title-slide-section-grey, center, middle
+# Altre risorse - Zotero
 
-# Bibliografia automatica con Mendeley
----
+Per quanto riguarda la gestione bibliografica, la soluzione gratuita e più immediata è [**Zotero**](https://www.zotero.org/) (c'è di meglio ma a pagamento). Zotero permette di:
 
-# Cite while you write
+- salvare e organizzare gli articoli in cartelle
+- mettere tag, note, sottolineare/evidenziare i pdf
+- citare in automatico su Word e Google Docs
 
-* Mendeley permette di creare automaticamente la bibliografia sia mentre si scrive, nel formato `(Autore, Anno)` che quella completa alla fine del documento
+Qualche link utile:
 
-* Permette di selezionare e passare automaticamente allo stile bibliografico preferito
-
-* Si aggiorna in tempo reale in base alle modifiche che fate con il documento
-
-* Funziona con **Word** e anche **Open Office**
-
-```{r, echo=FALSE, fig.align='center', out.height= 250, out.width= 500}
-knitr::include_graphics("img/mendeleycitation.png")
-```
+- [video](https://www.youtube.com/watch?v=JG7Uq_JFDzE) tutorial 
+- [documentazione](https://www.zotero.org/support/quick_start_guide) ufficiale
 
 ---
 class: title-slide-final, middle, center, inverse
 
 # Enjoy your bibliographic research 😎😎
 
-filippo.gambarota@phd.unipd.it
+<br/>
+<br/>
+.email[`r icons::fontawesome$solid$envelope` [filippo.gambarota@phd.unipd.it](mailto:filippo.gambarota@gmail.com)]
+<br/>
+<br/>
+.social[`r icons::fontawesome$brands$twitter` [@fgambarota](https://twitter.com/fgambarota)]
+<br/>
+.social[`r icons::fontawesome$brands$github` [filippogambarota](https://github.com/filippogambarota)]
+<br/>
+<br/>
 
 
 

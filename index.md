@@ -40,6 +40,10 @@ This repository is a collections of my slides and talks. All presentations are w
 
 # Talks
 
+## [AIP 2022](http://www.aipass.org/xxx-congresso-aip-plenario-padova-27-30-settembre-2022)
+
+- The relationship between Working Memory and Visual Consciousness - [Slides](https://docs.google.com/presentation/d/1tl_iAEJQrMEUTUJe8jWasOXmTtK8Jn70JOETVQIj6u0/edit#slide=id.p)
+
 ## Unconscious Visual Working Memory: a critical review and Bayesian meta-analysis
 
 - 3 minute talk - [Talk](https://youtu.be/saINoKK5XLY)

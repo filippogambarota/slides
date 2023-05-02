@@ -1,21 +1,19 @@
-This repository is a collections of my slides and talks. All presentations are written in `RMarkdown` using and rendered in `html/pdf` or with `Google Slides`
+---
+output: github_document
+---
 
-# Index
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<!-- MarkdownTOC -->
-
-- [Slides](#slides)
-	- [Methodological Slides](#methodological-slides)
-	- [Statistics](#statistics)
-	- [Consciousness](#consciousness)
-	- [Working Memory](#working-memory)
-- [Talks](#talks)
-	- [Unconscious Visual Working Memory: a critical review and Bayesian meta-analysis](#unconscious-visual-working-memory-a-critical-review-and-bayesian-meta-analysis)
-	- [Trackdown Package](#trackdown-package)
-
-<!-- /MarkdownTOC -->
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 # Slides
+
+This repository is a collections of my slides and talks. All presentations are written in `RMarkdown` using and rendered in `html/pdf` or with `Google Slides`
 
 ## Methodological Slides
 
@@ -50,7 +48,5 @@ This repository is a collections of my slides and talks. All presentations are w
 ## Trackdown Package
 
 * trackdown package - TASK4-2021 - [Slides](trackdown/trackdown_task4/trackdown_task4.html)
-
 * trackdown package - useR-2021 - [Slides](trackdown/trackdown_useR/trackdown_user.html) - [Talk](trackdown/trackdown_useR/talk_user.mp4)
-
 * trackdown package - SIPS-2021 - [Slides](trackdown/trackdown_sips/trackdown_sips.html) - [Talk](trackdown/trackdown_sips/talk_sips.mp4)

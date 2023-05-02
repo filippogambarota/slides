@@ -28,6 +28,7 @@ This repository is a collections of my slides and talks. All presentations are w
 * Introduction to Meta-analysis - [HTML](meta_analysis_presentation/meta_analysis_presentation.html) - [PDF](meta_analysis_presentation/meta_analysis_presentation.pdf)
 * Tips on Power and Sensitivity analysis - [HTML](socialneu_lab/lab_meeting_sensitivity/lab_meeting_sensitivity.html)
 * Multivariate Meta-Analysis in the Multiverse - [Psicostat](https://ip146179.psy.unipd.it/psicostat/web/index.html) 04/03/2022 - [HTML](multivariate-meta_analysis/multivariate-multiverse.html) - [PDF](multivariate-meta_analysis/multivariate-multiverse.pdf)
+* Simulating meta-analysis - [Psicostat Workshops](https://ip146179.psy.unipd.it/psicostat/web/index.html) 03/05/2022 - [HTML](understanding-meta-simulations/slides/understanding-meta-simulations.html)
 
 ## Consciousness
 

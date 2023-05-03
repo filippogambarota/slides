@@ -309,6 +309,13 @@ forest(fit)
 ```
 
 ---
+# Overall simulation setup
+
+```{r, echo = FALSE, out.width="50%"}
+knitr::include_graphics("img/flow.svg")
+```
+
+---
 class: inverse, center, middle
 
 # Let's simulate!

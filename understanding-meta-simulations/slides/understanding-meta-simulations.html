@@ -222,6 +222,11 @@ By switching the statistical unit one level up (from participants to studies) th
 &lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-6-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
+# Overall simulation setup
+
+&lt;img src="img/flow.svg" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
 class: inverse, center, middle
 
 # Let's simulate!
@@ -460,7 +465,7 @@ In our example `\(\theta_f = 0.4\)` and the sampling variances are different for
 ---
 # Fixed-effects model
 
-&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-16-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-17-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Fixed-effects model
@@ -503,14 +508,14 @@ summary(fit_fixed)
 forest(fit_fixed)
 ```
 
-&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-18-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-19-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 # It is reasonable to assume a fixed-effects model?
 
 The fixed effect model assume that no study-level (research group, language, nation, etc.) or participants-level features (age, sex, etc.) have an impact on the treatment effect. Quite unlikely!
 
-&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-19-1.svg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-20-1.svg" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Random-effects model
@@ -527,7 +532,7 @@ Now, `\(\theta_r\)` is the **average** effect across all conditions and `\(\thet
 
 The impact of `\(\tau\)` can be seen plotting the expected distribution from the random-effects model using `dnorm(x, theta_r, tau)`
 
-&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-20-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-21-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Random-effects model
@@ -627,7 +632,7 @@ summary(fit_random)
 forest(fit_random)
 ```
 
-&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-24-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-25-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Power analysis
@@ -692,7 +697,7 @@ We can also use multiple conditions to create power curves:
 
 
 
-&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-27-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="understanding-meta-simulations_files/figure-html/unnamed-chunk-28-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Improving the simulation

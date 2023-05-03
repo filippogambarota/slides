@@ -226,9 +226,9 @@ pvalue_plot | se_plot
 
 ### Standard t-test
 
-$$t = \frac{\bar{X_1} - \bar{X_2}}{s_p\sqrt{\frac{2}{n}}}$$
+$$t = \frac{\bar{X_1} - \bar{X_2}}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$$
 
-$$s_p = \sqrt{\frac{s^2_{X_1} + s^2_{X_2}}{2}}$$
+$$s_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n1_1 + n_2 - 2}}$$
 
 ]
 
@@ -240,7 +240,7 @@ $$t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{SE^2_{\bar X_1} + SE^2_{\bar X_2}}}$$
 $$SE_{X_i} = \frac{s_i}{\sqrt{n_i}}$$
 ]
 
-Basically, the standard t-test did not take into account the sample size and standard error differences!
+.footnote[Also the degrees of freedom calculation is different between the two approaches]
 
 ---
 class: inverse, center, middle

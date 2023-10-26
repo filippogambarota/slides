@@ -10,7 +10,7 @@ presentations are written in `RMarkdown` using and rendered in
 ## Methodological Slides
 
 - Introduction to the Tidyverse -
-  [Psicostat](https://ip146179.psy.unipd.it/psicostat/web/index.html)
+  [Psicostat](https://psicostat.dpss.psy.unipd.it/index.html)
   11/12/2020 -
   [HTML](tidyverse_presentation/tidyverse_presentation.html) -
   [PDF](tidyverse_presentation/tidyverse_presentation.pdf)
@@ -28,14 +28,18 @@ presentations are written in `RMarkdown` using and rendered in
 - Tips on Power and Sensitivity analysis -
   [HTML](socialneu_lab/lab_meeting_sensitivity/lab_meeting_sensitivity.html)
 - Multivariate Meta-Analysis in the Multiverse -
-  [Psicostat](https://ip146179.psy.unipd.it/psicostat/web/index.html)
+  [Psicostat](https://psicostat.dpss.psy.unipd.it/index.html)
   04/03/2022 -
   [HTML](multivariate-meta_analysis/multivariate-multiverse.html) -
   [PDF](multivariate-meta_analysis/multivariate-multiverse.pdf)
 - Simulating meta-analysis - [Psicostat
-  Workshops](https://ip146179.psy.unipd.it/psicostat/web/index.html)
-  03/05/2022 -
+  Workshops](https://psicostat.dpss.psy.unipd.it/index.html)
+  03/05/2023 -
   [HTML](understanding-meta-simulations/slides/understanding-meta-simulations.html)
+- Replicating or not? Statistical methods for replicability assessment -
+  [Psicostat](https://psicostat.dpss.psy.unipd.it/index.html)
+  27/10/2023 -
+  [HTML](psicostat-replicability/psicostat-replicability.html.html)
 
 ## Consciousness
 

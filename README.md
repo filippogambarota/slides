@@ -39,7 +39,7 @@ presentations are written in `RMarkdown` using and rendered in
 - Replicating or not? Statistical methods for replicability assessment -
   [Psicostat](https://psicostat.dpss.psy.unipd.it/index.html)
   27/10/2023 -
-  [HTML](psicostat-replicability/psicostat-replicability.html.html)
+  [HTML](psicostat-replicability/psicostat-replicability.html)
 
 ## Consciousness
 
